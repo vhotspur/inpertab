@@ -21,6 +21,11 @@ function Plugin(id, name) {
 	this.onSuspend = function() {
 		
 	};
+	this.setPTE = function(pte) {
+		this.pte = pte;
+	};
+	this.init = function() {
+	};
 }
 
 

@@ -3,11 +3,11 @@ function PluginOxidationStates() {
 	this.inheritFrom("oxidationstates", "Oxidation states");
 	
 	this.selectState = function(state) {
-		ptUnhighlightAll();
-		ptForEachElement(function(elem) {
+		this.pte.clearHighlighting();
+		this.pte.forEachElement(this.pte, function(pte, elem) {
 			for (var i=0; i < elem[3].length; i++) {
 				if (elem[3][i] == state) {
-					ptHighlightElementById(elem[0]);
+					pte.highlightElement(elem[0]);
 				}
 			}
 		});
@@ -24,12 +24,14 @@ function PluginOxidationStates() {
 	this.onSuspend = function() {
 	
 	};
-	
-	// initialize the controls
-	$("#p-oxidationstates-radio").buttonset();
-	$("#p-oxidationstates-radio input:radio").click($.proxy(this.onChange, this));
-	$("#p-oxidationstates-st-1").attr("checked", "checked");
-	$("#p-oxidationstates-radio").buttonset("refresh");
+
+	this.init = function() {
+		// initialize the controls
+		$("#p-oxidationstates-radio").buttonset();
+		$("#p-oxidationstates-radio input:radio").click($.proxy(this.onChange, this));
+		$("#p-oxidationstates-st-1").attr("checked", "checked");
+		$("#p-oxidationstates-radio").buttonset("refresh");
+	};
 }
 
 
