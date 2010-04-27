@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<periodic-table>
+<row class="groups-arabic blank-cells">
+ <blank-cell />
+ <header-cell>1</header-cell>
+ <header-cell>2</header-cell>
+ <header-cell>3</header-cell>
+ <header-cell>4</header-cell>
+ <header-cell>5</header-cell>
+ <header-cell>6</header-cell>
+ <header-cell>7</header-cell>
+ <header-cell>8</header-cell>
+ <header-cell>9</header-cell>
+ <header-cell>10</header-cell>
+ <header-cell>11</header-cell>
+ <header-cell>12</header-cell>
+ <header-cell>13</header-cell>
+ <header-cell>14</header-cell>
+ <header-cell>15</header-cell>
+ <header-cell>16</header-cell>
+ <header-cell>17</header-cell>
+ <header-cell>18</header-cell>
+</row>
+<row class="blank-cells">
+ <blank-cell />
+ <header-cell>I.A</header-cell>
+ <header-cell>II.A</header-cell>
+ <header-cell>III.B</header-cell>
+ <header-cell>IV.B</header-cell>
+ <header-cell>V.B</header-cell>
+ <header-cell>VI.B</header-cell>
+ <header-cell>VII.B</header-cell>
+ <header-cell col-span="3">VIII.B</header-cell>
+ <header-cell>I.B</header-cell>
+ <header-cell>II.B</header-cell>
+ <header-cell>III.A</header-cell>
+ <header-cell>IV.A</header-cell>
+ <header-cell>V.A</header-cell>
+ <header-cell>VI.A</header-cell>
+ <header-cell>VII.A</header-cell>
+ <header-cell>VIII.A</header-cell>
+</row>
+<row>
+ <header-cell class="blank">1</header-cell>
+ <element-cell id="elem_H">H</element-cell>
+ <blank-cell />
+ <cell col-span="10" row-span="3" class="blank">
+	<controls-placeholder name="main" />
+ </cell>
+ <cell col-span="5" class="blank">
+	<controls-placeholder name="tiny" />
+ </cell>
+ <element-cell id="elem_He">He</element-cell>
+</row>
+<row>
+ <header-cell class="blank">2</header-cell>
+ <element-cell id="elem_Li">Li</element-cell>
+ <element-cell id="elem_Be">Be</element-cell>
+ <element-cell id="elem_B">B</element-cell>
+ <element-cell id="elem_C">C</element-cell>
+ <element-cell id="elem_N">N</element-cell>
+ <element-cell id="elem_O">O</element-cell>
+ <element-cell id="elem_F">F</element-cell>
+ <element-cell id="elem_Ne">Ne</element-cell>
+</row>
+<row>
+ <header-cell class="blank">3</header-cell>
+ <element-cell id="elem_Na">Na</element-cell>
+ <element-cell id="elem_Mg">Mg</element-cell>
+ <element-cell id="elem_Al">Al</element-cell>
+ <element-cell id="elem_Si">Si</element-cell>
+ <element-cell id="elem_P">P</element-cell>
+ <element-cell id="elem_S">S</element-cell>
+ <element-cell id="elem_Cl">Cl</element-cell>
+ <element-cell id="elem_Ar">Ar</element-cell>
+</row>
+<row>
+ <header-cell class="blank">4</header-cell>
+ <element-cell id="elem_K">K</element-cell>
+ <element-cell id="elem_Ca">Ca</element-cell>
+ <element-cell id="elem_Sc">Sc</element-cell>
+ <element-cell id="elem_Ti">Ti</element-cell>
+ <element-cell id="elem_V">V</element-cell>
+ <element-cell id="elem_Cr">Cr</element-cell>
+ <element-cell id="elem_Mn">Mn</element-cell>
+ <element-cell id="elem_Fe">Fe</element-cell>
+ <element-cell id="elem_Co">Co</element-cell>
+ <element-cell id="elem_Ni">Ni</element-cell>
+ <element-cell id="elem_Cu">Cu</element-cell>
+ <element-cell id="elem_Zn">Zn</element-cell>
+ <element-cell id="elem_Ga">Ga</element-cell>
+ <element-cell id="elem_Ge">Ge</element-cell>
+ <element-cell id="elem_As">As</element-cell>
+ <element-cell id="elem_Se">Se</element-cell>
+ <element-cell id="elem_Br">Br</element-cell>
+ <element-cell id="elem_Kr">Kr</element-cell>
+</row>
+<row>
+ <header-cell class="blank">5</header-cell>
+ <element-cell id="elem_Rb">Rb</element-cell>
+ <element-cell id="elem_Sr">Sr</element-cell>
+ <element-cell id="elem_Y">Y</element-cell>
+ <element-cell id="elem_Zr">Zr</element-cell>
+ <element-cell id="elem_Nb">Nb</element-cell>
+ <element-cell id="elem_Mo">Mo</element-cell>
+ <element-cell id="elem_Tc">Tc</element-cell>
+ <element-cell id="elem_Ru">Ru</element-cell>
+ <element-cell id="elem_Rh">Rh</element-cell>
+ <element-cell id="elem_Pd">Pd</element-cell>
+ <element-cell id="elem_Ag">Ag</element-cell>
+ <element-cell id="elem_Cd">Cd</element-cell>
+ <element-cell id="elem_In">In</element-cell>
+ <element-cell id="elem_Sn">Sn</element-cell>
+ <element-cell id="elem_Sb">Sb</element-cell>
+ <element-cell id="elem_Te">Te</element-cell>
+ <element-cell id="elem_I">I</element-cell>
+ <element-cell id="elem_Xe">Xe</element-cell>
+</row>
+<row>
+ <header-cell class="blank">6</header-cell>
+ <element-cell id="elem_Cs">Cs</element-cell>
+ <element-cell id="elem_Ba">Ba</element-cell>
+ <cell>*</cell>
+ <element-cell id="elem_Hf">Hf</element-cell>
+ <element-cell id="elem_Ta">Ta</element-cell>
+ <element-cell id="elem_W">W</element-cell>
+ <element-cell id="elem_Re">Re</element-cell>
+ <element-cell id="elem_Os">Os</element-cell>
+ <element-cell id="elem_Ir">Ir</element-cell>
+ <element-cell id="elem_Pt">Pt</element-cell>
+ <element-cell id="elem_Au">Au</element-cell>
+ <element-cell id="elem_Hg">Hg</element-cell>
+ <element-cell id="elem_Tl">Tl</element-cell>
+ <element-cell id="elem_Pb">Pb</element-cell>
+ <element-cell id="elem_Bi">Bi</element-cell>
+ <element-cell id="elem_Po">Po</element-cell>
+ <element-cell id="elem_At">At</element-cell>
+ <element-cell id="elem_Rn">Rn</element-cell>
+</row>
+<row>
+ <header-cell class="blank">7</header-cell>
+ <element-cell id="elem_Fr">Fr</element-cell>
+ <element-cell id="elem_Ra">Ra</element-cell>
+ <cell>**</cell>
+ <element-cell id="elem_Rf">Rf</element-cell>
+ <element-cell id="elem_Db">Db</element-cell>
+ <element-cell id="elem_Sg">Sg</element-cell>
+ <element-cell id="elem_Bh">Bh</element-cell>
+ <element-cell id="elem_Hs">Hs</element-cell>
+ <element-cell id="elem_Mt">Mt</element-cell>
+ <element-cell id="elem_Ds">Ds</element-cell>
+ <element-cell id="elem_Rg">Rg</element-cell>
+ <element-cell id="elem_Uub">Uub</element-cell>
+ <element-cell id="elem_Uut">Uut</element-cell>
+ <element-cell id="elem_Uuq">Uuq</element-cell>
+ <element-cell id="elem_Uup">Uup</element-cell>
+ <element-cell id="elem_Uuh">Uuh</element-cell>
+ <element-cell id="elem_Uus">Uus</element-cell>
+ <element-cell id="elem_Uuo">Uuo</element-cell>
+</row>
+<row>
+ <cell col-span="3" class="blank"></cell>
+ <cell col-span="16" class="blank"></cell>
+</row>
+<row>
+ <cell col-span="3" row-span="2" class="blank"></cell>
+ <cell>*</cell>
+ <element-cell id="elem_La">La</element-cell>
+ <element-cell id="elem_Ce">Ce</element-cell>
+ <element-cell id="elem_Pr">Pr</element-cell>
+ <element-cell id="elem_Nd">Nd</element-cell>
+ <element-cell id="elem_Pm">Pm</element-cell>
+ <element-cell id="elem_Sm">Sm</element-cell>
+ <element-cell id="elem_Eu">Eu</element-cell>
+ <element-cell id="elem_Gd">Gd</element-cell>
+ <element-cell id="elem_Tb">Tb</element-cell>
+ <element-cell id="elem_Dy">Dy</element-cell>
+ <element-cell id="elem_Ho">Ho</element-cell>
+ <element-cell id="elem_Er">Er</element-cell>
+ <element-cell id="elem_Tm">Tm</element-cell>
+ <element-cell id="elem_Yb">Yb</element-cell>
+ <element-cell id="elem_Lu">Lu</element-cell>
+</row>
+<row>
+ <cell>**</cell>
+ <element-cell id="elem_Ac">Ac</element-cell>
+ <element-cell id="elem_Th">Th</element-cell>
+ <element-cell id="elem_Pa">Pa</element-cell>
+ <element-cell id="elem_U">U</element-cell>
+ <element-cell id="elem_Np">Np</element-cell>
+ <element-cell id="elem_Pu">Pu</element-cell>
+ <element-cell id="elem_Am">Am</element-cell>
+ <element-cell id="elem_Cm">Cm</element-cell>
+ <element-cell id="elem_Bk">Bk</element-cell>
+ <element-cell id="elem_Cf">Cf</element-cell>
+ <element-cell id="elem_Es">Es</element-cell>
+ <element-cell id="elem_Fm">Fm</element-cell>
+ <element-cell id="elem_Md">Md</element-cell>
+ <element-cell id="elem_No">No</element-cell>
+ <element-cell id="elem_Lr">Lr</element-cell>
+</row>
+</periodic-table>

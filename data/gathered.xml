@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE data [
+	<!ENTITY cafeconleche_allelements SYSTEM "cafeconleche-allelements.xml">
+	<!ENTITY kdeedu_elements SYSTEM "kdeedu-elements.xml">
+]>
+<data>
+
+	&kdeedu_elements;
+	&cafeconleche_allelements;
+	
+</data>

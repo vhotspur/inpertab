@@ -1,0 +1,44 @@
+BODY {
+	
+}
+
+TABLE#pte {
+	border-collapse: collapse;
+	margin: 5px;
+}
+TABLE#pte TD, TABLE#pte TH {
+	border: 1px solid black;
+	border-width: 1px 1px 0 0;
+	border-width: 1px;
+	border-collapse: collapse;
+	padding: 2px;
+	margin: 0;
+	text-align: center;
+	width: 4em;
+	height: 2.5em;
+}
+TABLE#pte TD.element {
+	width: 4em;
+	font-size: 120%;
+	
+}
+TABLE#pte TD.blank {
+	border-width: 0;
+}
+TABLE#pte CAPTION {
+	font-size: 200%;
+}
+TABLE#pte .groups-arabic {
+	font-size: 70%;
+}
+TABLE#pte .groups-arabic TH {
+	padding: 0;
+	margin: 0;
+	height: 1em;
+}
+#p-discovery-ctrl-year {
+	margin: 0 1em;
+}
+.ui-widget {
+	font-size: 90%;
+}
