@@ -13,14 +13,13 @@ function PluginOxidationStates() {
 		});
 	};
 	
-	var tmp = this;
 	this.onChange = function() {
-		tmp.selectState($("input[name=p-oxidationstates-state]:radio:checked").val());
+		this.selectState($("input[name=p-oxidationstates-state]:radio:checked").val());
 		return true;
 	};
 	
 	this.onResume = function() {
-		this.selectState($("input[name=p-oxidationstates-state]:radio:checked").val());
+		this.onChange();
 	};
 	this.onSuspend = function() {
 	
@@ -28,7 +27,7 @@ function PluginOxidationStates() {
 	
 	// initialize the controls
 	$("#p-oxidationstates-radio").buttonset();
-	$("#p-oxidationstates-radio input:radio").click(this.onChange);
+	$("#p-oxidationstates-radio input:radio").click($.proxy(this.onChange, this));
 	$("#p-oxidationstates-st-1").attr("checked", "checked");
 	$("#p-oxidationstates-radio").buttonset("refresh");
 }
