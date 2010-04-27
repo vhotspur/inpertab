@@ -14,6 +14,9 @@
 		<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
 		<script type="text/javascript" src="data.js"></script>
 		<script type="text/javascript" src="periodic.js"></script>
+		<script type="text/javascript" src="plugin.js"></script>
+		<script type="text/javascript" src="oxidationstates.js"></script>
+		<script type="text/javascript" src="discovery.js"></script>
 		<script type="text/javascript">
 		$(function() {
 			onDocumentLoaded();			
@@ -24,10 +27,9 @@
 		<table id="pte" >
 			<xsl:apply-templates />
 		</table>
-		<ul id="ctrl-show-plugins">
-			<li><span class="plugin-show" id="plugin-show-discovery">Discoveries</span></li>
-			<li><span class="plugin-show" id="plugin-show-oxidationstates">Oxidation states</span></li>
-		</ul>
+		<div id="ctrl-show-plugins">
+			
+		</div>
 	</body>
 </html>
 </xsl:template>
@@ -106,19 +108,31 @@
 			</div>
 			
 			<div class="plugin-board" id="plugin-board-oxidationstates">
-				<div id="p-oxidationstates-wrap">
-					<input type="checkbox" id="ctrl-oxidation-states--4" /><label for="ctrl-oxidation-states--4">-IV</label>
-					<input type="checkbox" id="ctrl-oxidation-states--3" /><label for="ctrl-oxidation-states--3">-III</label>
-					<input type="checkbox" id="ctrl-oxidation-states--2" /><label for="ctrl-oxidation-states--2">-II</label>
-					<input type="checkbox" id="ctrl-oxidation-states--1" /><label for="ctrl-oxidation-states--1">-I</label>
-					<input type="checkbox" id="ctrl-oxidation-states-1" /><label for="ctrl-oxidation-states-1">+I</label>
-					<input type="checkbox" id="ctrl-oxidation-states-2" /><label for="ctrl-oxidation-states-2">+II</label>
-					<input type="checkbox" id="ctrl-oxidation-states-3" /><label for="ctrl-oxidation-states-3">+III</label>
-					<input type="checkbox" id="ctrl-oxidation-states-4" /><label for="ctrl-oxidation-states-4">+IV</label>
-					<input type="checkbox" id="ctrl-oxidation-states-5" /><label for="ctrl-oxidation-states-5">+V</label>
-					<input type="checkbox" id="ctrl-oxidation-states-6" /><label for="ctrl-oxidation-states-6">+VI</label>
-					<input type="checkbox" id="ctrl-oxidation-states-7" /><label for="ctrl-oxidation-states-7">+VII</label>
-					<input type="checkbox" id="ctrl-oxidation-states-8" /><label for="ctrl-oxidation-states-8">+VIII</label>
+				<div id="p-oxidationstates-radio">
+					<input type="radio" name="p-oxidationstates-state" value="-4" id="p-oxidationstates-st--4" />
+						<label for="p-oxidationstates-st--4">-IV</label>
+					<input type="radio" name="p-oxidationstates-state" value="-3" id="p-oxidationstates-st--3" />
+						<label for="p-oxidationstates-st--3">-III</label>
+					<input type="radio" name="p-oxidationstates-state" value="-2" id="p-oxidationstates-st--2" />
+						<label for="p-oxidationstates-st--2">-II</label>
+					<input type="radio" name="p-oxidationstates-state" value="-1" id="p-oxidationstates-st--1" />
+						<label for="p-oxidationstates-st--1">-I</label>
+					<input type="radio" name="p-oxidationstates-state" value="1" id="p-oxidationstates-st-1" />
+						<label for="p-oxidationstates-st-1">I</label>
+					<input type="radio" name="p-oxidationstates-state" value="2" id="p-oxidationstates-st-2" />
+						<label for="p-oxidationstates-st-2">II</label>
+					<input type="radio" name="p-oxidationstates-state" value="3" id="p-oxidationstates-st-3" />
+						<label for="p-oxidationstates-st-3">III</label>
+					<input type="radio" name="p-oxidationstates-state" value="4" id="p-oxidationstates-st-4" />
+						<label for="p-oxidationstates-st-4">IV</label>
+					<input type="radio" name="p-oxidationstates-state" value="5" id="p-oxidationstates-st-5" />
+						<label for="p-oxidationstates-st-5">V</label>
+					<input type="radio" name="p-oxidationstates-state" value="6" id="p-oxidationstates-st-6" />
+						<label for="p-oxidationstates-st-6">VI</label>
+					<input type="radio" name="p-oxidationstates-state" value="7" id="p-oxidationstates-st-7" />
+						<label for="p-oxidationstates-st-7">VII</label>
+					<input type="radio" name="p-oxidationstates-state" value="8" id="p-oxidationstates-st-8" />
+						<label for="p-oxidationstates-st-8">VIII</label>
 				</div>
 			</div>
 			
@@ -144,7 +158,7 @@
 			</div>
 		</xsl:when>
 		<xsl:when test="@name = 'tiny'">
-			<button id="ctrl-clear" style="margin:0">Clear...</button>
+			
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:value-of select="@name" />
