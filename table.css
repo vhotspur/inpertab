@@ -42,3 +42,15 @@ TABLE#pte .groups-arabic TH {
 .ui-widget {
 	font-size: 90%;
 }
+#element-details-icon {
+	font-size: 300%;
+}
+#element-details-icon SUB {
+	font-size: 50%;
+}
+#element-details-basic TD {
+	text-align: right;
+}
+#element-details-basic TD.element-details-icon {
+	text-align: center;
+}

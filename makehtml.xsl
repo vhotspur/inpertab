@@ -144,12 +144,21 @@
 						<li><a href="#element-details-isotopes">Isotopes</a></li>
 					</ul>
 					<div id="element-details-basic">
-						<dl>
-							<dt>Symbol</dt>
-								<dd id="element-details-symbol">?</dd>
-							<dt>Name</dt>
-								<dd id="element-details-name">?</dd>
-						</dl>
+						<table width="100%" border="0">
+						<tr>
+							<td width="50%" class="element-details-icon">
+								<span id="element-details-icon">
+									<sub class="element-details-atomic-number"></sub>
+									<span class="element-details-symbol">?</span>
+								</span>
+								<br />
+								<span class="element-details-mass">?</span>
+							</td>
+							<td width="50%">
+								<span class="element-details-name">?</span>
+							</td>
+						</tr>
+						</table>
 					</div>
 					<div id="element-details-isotopes">
 						<ul id="element-details-isotope-list">

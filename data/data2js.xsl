@@ -56,6 +56,13 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	</xsl:for-each>
 	<xsl:text>]</xsl:text>
 	
+	<!-- atomic number and mass -->
+	<xsl:text>, "</xsl:text>
+	<xsl:value-of select="atomic-number" />
+	<xsl:text>", "</xsl:text>
+	<xsl:value-of select="mass" />
+	<xsl:text>"</xsl:text>
+	
 	
 	<xsl:text>)</xsl:text>
 	<xsl:value-of select="$NL " />

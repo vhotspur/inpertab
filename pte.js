@@ -42,7 +42,7 @@ function PeriodicTable() {
 	};
 
 	this._elementDetails = function(name, value) {
-		$("#element-details-" + name).html(value);
+		$(".element-details-" + name).html(value);
 	};
 
 	this.showElementDetails = function(symbol) {
@@ -52,6 +52,8 @@ function PeriodicTable() {
 		}
 		this._elementDetails("symbol", info[0]);
 		this._elementDetails("name", info[1]);
+		this._elementDetails("atomic-number", info[4]);
+		this._elementDetails("mass", info[5]);
 		$("#dialog-element-details").dialog({
 			modal: true,
 			buttons: { "Close": function() { $(this).dialog("close"); } },
