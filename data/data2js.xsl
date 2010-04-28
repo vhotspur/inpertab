@@ -30,38 +30,40 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<!-- symbol (id) -->
 	<xsl:text>symbol : "</xsl:text>
 	<xsl:value-of select="@id" />
-	<xsl:text>"</xsl:text>
+	<xsl:text>",</xsl:text>
 	
 	<!-- names -->
-	<xsl:text>, localName : "</xsl:text>
+	<xsl:text>localName : "</xsl:text>
 	<xsl:value-of select="name" />
-	<xsl:text>"</xsl:text>
+	<xsl:text>",</xsl:text>
 	
 	<!-- discovery -->
-	<xsl:text>, discoveryYear : </xsl:text>
+	<xsl:text>discoveryYear : </xsl:text>
 	<xsl:value-of select="discovery/date" />
 	<xsl:text>, discoveryPeople: "</xsl:text>
 	<xsl:value-of select="discovery/person" />
 	<xsl:text>", discoveryCountries: "</xsl:text>
 	<xsl:value-of select="discovery/country" />
-	<xsl:text>"</xsl:text>
+	<xsl:text>",</xsl:text>
 	
 	<!-- oxidation states -->
-	<xsl:text>, oxidationStates : [</xsl:text>
+	<xsl:text>oxidationStates : [</xsl:text>
 	<xsl:for-each select="oxidation-states/oxidation-state">
 		<xsl:value-of select="." />
 		<xsl:if test="position() &lt; last()">
 			<xsl:text>, </xsl:text>
 		</xsl:if>
 	</xsl:for-each>
-	<xsl:text>]</xsl:text>
+	<xsl:text>],</xsl:text>
 	
 	<!-- atomic number and mass -->
-	<xsl:text>, atomicNumber : "</xsl:text>
+	<xsl:text>atomicNumber : "</xsl:text>
 	<xsl:value-of select="atomic-number" />
 	<xsl:text>", mass: "</xsl:text>
 	<xsl:value-of select="mass" />
-	<xsl:text>"</xsl:text>	
+	<xsl:text>",</xsl:text>
+	
+	<xsl:text>xxxxxx : 0</xsl:text>
 	
 	<xsl:text>}));</xsl:text>
 	<xsl:value-of select="$NL " />
