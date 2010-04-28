@@ -143,6 +143,7 @@
 					<ul>
 						<li><a href="#element-details-basic">Basic data</a></li>
 						<li><a href="#element-details-isotopes">Isotopes</a></li>
+						<li><a href="#element-details-states-of-matter">State of matter</a></li>
 					</ul>
 					<div id="element-details-basic">
 						<table width="100%" border="0">
@@ -156,7 +157,20 @@
 								<span class="element-details-mass">?</span>
 							</td>
 							<td width="50%">
-								<span class="element-details-name">?</span>
+								<dl>
+									<dt>Universal name</dt>
+										<dd class="element-details-universal-name">?</dd>
+									<dt>Name</dt>
+										<dd class="element-details-name">?</dd>
+									<dt>English name</dt>
+										<dd class="element-details-english-name">?</dd>
+									<dt>Period - group</dt>
+										<dd>
+											<span class="element-details-period">0</span>
+											-
+											<span class="element-details-group">0</span>
+										</dd>
+								</dl>
 							</td>
 						</tr>
 						</table>
@@ -164,6 +178,20 @@
 					<div id="element-details-isotopes">
 						<ul id="element-details-isotope-list">
 						</ul>
+					</div>
+					<div id="element-details-states-of-matter">
+						<dl>
+							<dt>Boiling point</dt>
+								<dd>
+									<span class="element-details-boiling-point-kelvin">?</span>K
+									(<span class="element-details-boiling-point-celsius">?</span>°C)
+								</dd>
+							<dt>Melting point</dt>
+								<dd>
+									<span class="element-details-melting-point-kelvin">?</span>K
+									(<span class="element-details-melting-point-celsius">?</span>°C)
+								</dd>
+						</dl>
 					</div>
 				</div>
 			</div>
