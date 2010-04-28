@@ -9,6 +9,7 @@ function onDocumentLoaded() {
 	$("#dialog-element-details").hide();
 	
 	var pte = new PeriodicTable();
+	InitializeChemicalElements(pte);
 	
 	$("TD.element").click(function() {
 		pte.showElementDetails($(this).attr("id").substring(5));		

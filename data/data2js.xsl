@@ -10,44 +10,44 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 
 
 <xsl:template match="/elements">
-	<xsl:text>ELEMENTS = new Array(</xsl:text>
+	<xsl:text>function InitializeChemicalElements(pte) {</xsl:text>
 	<xsl:value-of select="$NL " />
 	
 	<xsl:for-each select="element">
 		<xsl:apply-templates select="." />
-		<xsl:if test="position() &lt; last()">
-			<xsl:text>,</xsl:text>
-		</xsl:if>
+		<!--<xsl:if test="position() &lt; last()">
+			<xsl:text>;</xsl:text>
+		</xsl:if>-->
 	</xsl:for-each>
 	
-	<xsl:text>);</xsl:text>
+	<xsl:text>};</xsl:text>
 	<xsl:value-of select="$NL " />
 </xsl:template>
 
 <xsl:template match="element">
-	<xsl:text>	new Array(</xsl:text>
+	<xsl:text>	pte.addElement(new ChemElement( {</xsl:text>
 	
 	<!-- symbol (id) -->
-	<xsl:text>"</xsl:text>
+	<xsl:text>symbol : "</xsl:text>
 	<xsl:value-of select="@id" />
 	<xsl:text>"</xsl:text>
 	
 	<!-- names -->
-	<xsl:text>, "</xsl:text>
+	<xsl:text>, localName : "</xsl:text>
 	<xsl:value-of select="name" />
 	<xsl:text>"</xsl:text>
 	
 	<!-- discovery -->
-	<xsl:text>, new Array(</xsl:text>
+	<xsl:text>, discoveryYear : </xsl:text>
 	<xsl:value-of select="discovery/date" />
-	<xsl:text>, "</xsl:text>
+	<xsl:text>, discoveryPeople: "</xsl:text>
 	<xsl:value-of select="discovery/person" />
-	<xsl:text>", "</xsl:text>
+	<xsl:text>", discoveryCountries: "</xsl:text>
 	<xsl:value-of select="discovery/country" />
-	<xsl:text>")</xsl:text>
+	<xsl:text>"</xsl:text>
 	
 	<!-- oxidation states -->
-	<xsl:text>, [</xsl:text>
+	<xsl:text>, oxidationStates : [</xsl:text>
 	<xsl:for-each select="oxidation-states/oxidation-state">
 		<xsl:value-of select="." />
 		<xsl:if test="position() &lt; last()">
@@ -57,14 +57,13 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<xsl:text>]</xsl:text>
 	
 	<!-- atomic number and mass -->
-	<xsl:text>, "</xsl:text>
+	<xsl:text>, atomicNumber : "</xsl:text>
 	<xsl:value-of select="atomic-number" />
-	<xsl:text>", "</xsl:text>
+	<xsl:text>", mass: "</xsl:text>
 	<xsl:value-of select="mass" />
-	<xsl:text>"</xsl:text>
+	<xsl:text>"</xsl:text>	
 	
-	
-	<xsl:text>)</xsl:text>
+	<xsl:text>}));</xsl:text>
 	<xsl:value-of select="$NL " />
 </xsl:template>
 

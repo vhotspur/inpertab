@@ -1,8 +1,9 @@
 function PeriodicTable() {
+	this.elements = new Array();
 	
-	// FIXME - do this better
-	// (hide the ELEMENTS variable completely?)
-	this.elements = ELEMENTS;
+	this.addElement = function(element) {
+		this.elements[this.elements.length] = element;
+	}
 	
 	this._elementBackground = function(symbol, color) {
 		$("#elem_" + symbol).css("background-color", color);
@@ -10,7 +11,7 @@ function PeriodicTable() {
 	
 	this.clearHighlighting = function() {
 		for (var i=0; i<this.elements.length; i++) {
-			this._elementBackground(this.elements[i][0], "white");
+			this._elementBackground(this.elements[i].symbol, "white");
 		}
 	};
 	
@@ -19,11 +20,15 @@ function PeriodicTable() {
 	};
 	
 	this.highlightElementByIndex = function(idx) {
-		this._highlightElementBySymbol(this.elements[idx][0]);
+		this._highlightElementBySymbol(this.elements[idx].symbol);
 	};
 	
-	this.highlightElement = function(symbol) {
-		this._highlightElementBySymbol(symbol);
+	this.highlightElement = function(elementOrSymbol) {
+		if (typeof elementOrSymbol == "string") {
+			this._highlightElementBySymbol(elementOrSymbol);
+		} else {
+			this._highlightElementBySymbol(elementOrSymbol.symbol);
+		}
 	};
 	
 	this.forEachElement = function(param, callback) {
@@ -34,7 +39,7 @@ function PeriodicTable() {
 	
 	this.getElementInfo = function(symbol) {
 		for (var i=0; i<this.elements.length; i++) {
-			if (this.elements[i][0] == symbol) {
+			if (this.elements[i].symbol == symbol) {
 				return this.elements[i];
 			}
 		}
@@ -50,10 +55,10 @@ function PeriodicTable() {
 		if (info == 0) {
 			return;
 		}
-		this._elementDetails("symbol", info[0]);
-		this._elementDetails("name", info[1]);
-		this._elementDetails("atomic-number", info[4]);
-		this._elementDetails("mass", info[5]);
+		this._elementDetails("symbol", info.symbol);
+		this._elementDetails("name", info.localName);
+		this._elementDetails("atomic-number", info.atomicNumber);
+		this._elementDetails("mass", info.mass);
 		$("#dialog-element-details").dialog({
 			modal: true,
 			buttons: { "Close": function() { $(this).dialog("close"); } },

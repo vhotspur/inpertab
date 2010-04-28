@@ -6,8 +6,8 @@ function PluginDiscovery() {
 		$("#p-discovery-label-year").text(ui.value);
 		this.pte.clearHighlighting();
 		this.pte.forEachElement(this.pte, function(pte, elem) {
-			if (elem[2][0] < ui.value) {
-				pte.highlightElement(elem[0]);
+			if (elem.wasDiscoveredBefore(ui.value)) {
+				pte.highlightElement(elem);
 			}
 		});
 		return true;

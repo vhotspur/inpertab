@@ -5,10 +5,8 @@ function PluginOxidationStates() {
 	this.selectState = function(state) {
 		this.pte.clearHighlighting();
 		this.pte.forEachElement(this.pte, function(pte, elem) {
-			for (var i=0; i < elem[3].length; i++) {
-				if (elem[3][i] == state) {
-					pte.highlightElement(elem[0]);
-				}
+			if (elem.hasOxidationState(state)) {
+				pte.highlightElement(elem);
 			}
 		});
 	};
