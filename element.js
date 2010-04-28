@@ -1,9 +1,10 @@
 /*
-symbol, atomicNumber, mass,
-group, period,
-universalName, englishName, localName,
-oxidationStates,
+symbol, atomicNumber, mass
+group, period
+universalName, englishName, localName
+oxidationStates
 discoveryYear, discoveryCountries, discoveryPeople
+boilingPoint, meltingPoint
 */
 function ChemElement(arg) {
 	this.symbol = arg.symbol;
@@ -26,6 +27,9 @@ function ChemElement(arg) {
 		}
 		return false;
 	};
+	
+	this.boilingPoint = arg.boilingPoint;
+	this.meltingPoint = arg.meltingPoint;
 	
 	if (arg.discoveryYear == "" || arg.discoveryYear <= 100) {
 		arg.discoveryYear = 0;

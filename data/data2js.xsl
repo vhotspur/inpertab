@@ -32,6 +32,13 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<xsl:value-of select="@id" />
 	<xsl:text>",</xsl:text>
 	
+	<!-- group and period -->
+	<xsl:text>group : "</xsl:text>
+	<xsl:value-of select="group" />
+	<xsl:text>", period : "</xsl:text>
+	<xsl:value-of select="period" />
+	<xsl:text>",</xsl:text>
+	
 	<!-- names -->
 	<xsl:text>localName : "</xsl:text>
 	<xsl:value-of select="name" />
@@ -62,6 +69,13 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<xsl:text>", mass: "</xsl:text>
 	<xsl:value-of select="mass" />
 	<xsl:text>",</xsl:text>
+	
+	<!-- boiling and melting points -->
+	<xsl:text>boilingPoint : "</xsl:text>
+	<xsl:value-of select="state-of-matter/boiling-point" />
+	<xsl:text>", meltingPoint: "</xsl:text>
+	<xsl:value-of select="state-of-matter/melting-point" />
+	<xsl:text>", </xsl:text>
 	
 	<xsl:text>xxxxxx : 0</xsl:text>
 	

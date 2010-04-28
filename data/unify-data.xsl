@@ -64,6 +64,13 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:exactMass']/text()" />
 		</mass>
 		
+		<period>
+			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:period']/text()" />
+		</period>
+		<group>
+			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:group']/text()" />
+		</group>
+		
 		<discovery>
 			<country>
 				<xsl:value-of select="$info1/kdeedu:array[@dictRef='bo:discoveryCountry']/text()" />
@@ -81,7 +88,6 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 		</density>
 		
 		<oxidation-states>
-			
 			<xsl:call-template name="commaDelimitedToElements">
 				<xsl:with-param name="input">
 					<xsl:call-template name="strReplaceFromList">
@@ -93,6 +99,19 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 				<xsl:with-param name="wrappingElement" select="'oxidation-state'" />
 			</xsl:call-template>
 		</oxidation-states>
+		
+		<state-of-matter>
+			<boiling-point unit="kelvin">
+				<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:boilingpoint']/text()" />
+			</boiling-point>
+			<melting-point unit="kelvin">
+				<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:meltingpoint']/text()" />
+			</melting-point>
+		</state-of-matter>
+		
+		<electronic-configuration>
+			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:electronicConfiguration']/text()" />
+		</electronic-configuration>
 		
 	</xsl:element>
 </xsl:template>
