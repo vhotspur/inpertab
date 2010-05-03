@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<plugin>
+	<name>Oxidation states</name>
+	<id>oxidationstates</id>
+
+	<board>
+		<div id="p-oxidationstates-radio">
+			<input type="radio" name="p-oxidationstates-state" value="-4" id="p-oxidationstates-st--4" />
+				<label for="p-oxidationstates-st--4">-IV</label>
+			<input type="radio" name="p-oxidationstates-state" value="-3" id="p-oxidationstates-st--3" />
+				<label for="p-oxidationstates-st--3">-III</label>
+			<input type="radio" name="p-oxidationstates-state" value="-2" id="p-oxidationstates-st--2" />
+				<label for="p-oxidationstates-st--2">-II</label>
+			<input type="radio" name="p-oxidationstates-state" value="-1" id="p-oxidationstates-st--1" />
+				<label for="p-oxidationstates-st--1">-I</label>
+			<input type="radio" name="p-oxidationstates-state" value="1" id="p-oxidationstates-st-1" />
+				<label for="p-oxidationstates-st-1">I</label>
+			<input type="radio" name="p-oxidationstates-state" value="2" id="p-oxidationstates-st-2" />
+				<label for="p-oxidationstates-st-2">II</label>
+			<input type="radio" name="p-oxidationstates-state" value="3" id="p-oxidationstates-st-3" />
+				<label for="p-oxidationstates-st-3">III</label>
+			<input type="radio" name="p-oxidationstates-state" value="4" id="p-oxidationstates-st-4" />
+				<label for="p-oxidationstates-st-4">IV</label>
+			<input type="radio" name="p-oxidationstates-state" value="5" id="p-oxidationstates-st-5" />
+				<label for="p-oxidationstates-st-5">V</label>
+			<input type="radio" name="p-oxidationstates-state" value="6" id="p-oxidationstates-st-6" />
+				<label for="p-oxidationstates-st-6">VI</label>
+			<input type="radio" name="p-oxidationstates-state" value="7" id="p-oxidationstates-st-7" />
+				<label for="p-oxidationstates-st-7">VII</label>
+			<input type="radio" name="p-oxidationstates-state" value="8" id="p-oxidationstates-st-8" />
+				<label for="p-oxidationstates-st-8">VIII</label>
+		</div>
+	</board>
+
+	<resume>
+		this.onChange();
+	</resume>
+
+	<init>
+		// initialize the controls
+		$("#p-oxidationstates-radio").buttonset();
+		$("#p-oxidationstates-radio input:radio").click($.proxy(this.onChange, this));
+		$("#p-oxidationstates-st-1").attr("checked", "checked");
+		$("#p-oxidationstates-radio").buttonset("refresh");
+	</init>
+
+	<method name="selectState" parameters="state">
+		this.pte.clearHighlighting();
+		this.pte.forEachElement(this.pte, function(pte, elem) {
+			if (elem.hasOxidationState(state)) {
+				pte.highlightElement(elem);
+			}
+		});
+	</method>
+	
+	<method name="onChange">
+		this.selectState($("input[name=p-oxidationstates-state]:radio:checked").val());
+		return true;
+	</method>
+
+</plugin>
+

@@ -124,36 +124,6 @@
 				</xsl:element>
 			</xsl:for-each>
 			
-			<xsl:variable name="xx"><div class="plugin-board" id="plugin-board-oxidationstates">
-				<div id="p-oxidationstates-radio">
-					<input type="radio" name="p-oxidationstates-state" value="-4" id="p-oxidationstates-st--4" />
-						<label for="p-oxidationstates-st--4">-IV</label>
-					<input type="radio" name="p-oxidationstates-state" value="-3" id="p-oxidationstates-st--3" />
-						<label for="p-oxidationstates-st--3">-III</label>
-					<input type="radio" name="p-oxidationstates-state" value="-2" id="p-oxidationstates-st--2" />
-						<label for="p-oxidationstates-st--2">-II</label>
-					<input type="radio" name="p-oxidationstates-state" value="-1" id="p-oxidationstates-st--1" />
-						<label for="p-oxidationstates-st--1">-I</label>
-					<input type="radio" name="p-oxidationstates-state" value="1" id="p-oxidationstates-st-1" />
-						<label for="p-oxidationstates-st-1">I</label>
-					<input type="radio" name="p-oxidationstates-state" value="2" id="p-oxidationstates-st-2" />
-						<label for="p-oxidationstates-st-2">II</label>
-					<input type="radio" name="p-oxidationstates-state" value="3" id="p-oxidationstates-st-3" />
-						<label for="p-oxidationstates-st-3">III</label>
-					<input type="radio" name="p-oxidationstates-state" value="4" id="p-oxidationstates-st-4" />
-						<label for="p-oxidationstates-st-4">IV</label>
-					<input type="radio" name="p-oxidationstates-state" value="5" id="p-oxidationstates-st-5" />
-						<label for="p-oxidationstates-st-5">V</label>
-					<input type="radio" name="p-oxidationstates-state" value="6" id="p-oxidationstates-st-6" />
-						<label for="p-oxidationstates-st-6">VI</label>
-					<input type="radio" name="p-oxidationstates-state" value="7" id="p-oxidationstates-st-7" />
-						<label for="p-oxidationstates-st-7">VII</label>
-					<input type="radio" name="p-oxidationstates-state" value="8" id="p-oxidationstates-st-8" />
-						<label for="p-oxidationstates-st-8">VIII</label>
-				</div>
-			</div>
-			</xsl:variable>
-			
 			<div id="dialog-element-details">
 				<div id="tabs-element-details">
 					<ul>
