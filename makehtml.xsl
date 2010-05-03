@@ -143,8 +143,8 @@
 				<div id="tabs-element-details">
 					<ul>
 						<li><a href="#element-details-basic">&tr_eleminfo_basic;</a></li>
-						<li><a href="#element-details-isotopes">Isotopes</a></li>
-						<li><a href="#element-details-states-of-matter">State of matter</a></li>
+						<li><a href="#element-details-isotopes">&tr_eleminfo_isotopes;</a></li>
+						<li><a href="#element-details-states-of-matter">&tr_eleminfo_stateofmatter;</a></li>
 					</ul>
 					<div id="element-details-basic">
 						<table width="100%" border="0">
@@ -159,13 +159,13 @@
 							</td>
 							<td width="50%">
 								<dl>
-									<dt>Universal name</dt>
+									<dt>&tr_eleminfo_universalname;</dt>
 										<dd class="element-details-universal-name">?</dd>
-									<dt>Name</dt>
+									<dt>&tr_eleminfo_name;</dt>
 										<dd class="element-details-name">?</dd>
-									<dt>English name</dt>
+									<dt>&tr_eleminfo_englishname;</dt>
 										<dd class="element-details-english-name">?</dd>
-									<dt>Period - group</dt>
+									<dt>&tr_eleminfo_periodgroup;</dt>
 										<dd>
 											<span class="element-details-period">0</span>
 											-
@@ -182,12 +182,12 @@
 					</div>
 					<div id="element-details-states-of-matter">
 						<dl>
-							<dt>Boiling point</dt>
+							<dt>&tr_eleminfo_boilingpoint;</dt>
 								<dd>
 									<span class="element-details-boiling-point-kelvin">?</span>K
 									(<span class="element-details-boiling-point-celsius">?</span>°C)
 								</dd>
-							<dt>Melting point</dt>
+							<dt>&tr_eleminfo_meltingpoint;</dt>
 								<dd>
 									<span class="element-details-melting-point-kelvin">?</span>K
 									(<span class="element-details-melting-point-celsius">?</span>°C)
