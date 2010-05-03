@@ -1,0 +1,2 @@
+title "Periodická tabulka"
+eleminfo_basic "Základní údaje"

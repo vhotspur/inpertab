@@ -1,0 +1,2 @@
+title "Periodic table"
+eleminfo_basic "Basic data"

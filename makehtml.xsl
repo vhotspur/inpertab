@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!DOCTYPE stylesheet SYSTEM "l10n.dtd">
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="html" indent="yes" />
 
@@ -7,7 +8,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<title>Periodic table</title>
+		<title>&tr_title;</title>
 		<link type="text/css" href="css/sunny/jquery-ui-1.8.custom.css" rel="stylesheet" />	
 		<link type="text/css" href="table.css" rel="stylesheet" />	
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
@@ -141,7 +142,7 @@
 			<div id="dialog-element-details">
 				<div id="tabs-element-details">
 					<ul>
-						<li><a href="#element-details-basic">Basic data</a></li>
+						<li><a href="#element-details-basic">&tr_eleminfo_basic;</a></li>
 						<li><a href="#element-details-isotopes">Isotopes</a></li>
 						<li><a href="#element-details-states-of-matter">State of matter</a></li>
 					</ul>
