@@ -1,5 +1,4 @@
 
-PLUGINS = new Array();
 PLUGIN_CURRENT = -1;
 
 function onDocumentLoaded() {	
@@ -14,10 +13,7 @@ function onDocumentLoaded() {
 	$("TD.element").click(function() {
 		pte.showElementDetails($(this).attr("id").substring(5));		
 	});
-	
-	PLUGINS[0] = new PluginOxidationStates();
-	PLUGINS[1] = new PluginDiscovery();
-	
+		
 	for (var i = 0; i < PLUGINS.length; i++) {
 		PLUGINS[i].setPTE(pte);
 		PLUGINS[i].init();

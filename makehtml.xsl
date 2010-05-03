@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:import href="./plugin.xsl" />
 <xsl:output method="html" indent="yes" />
 
+<xsl:template match="/periodic-table-input">
+	<xsl:apply-templates select="periodic-table" />
+</xsl:template>
 
-<xsl:template match="/periodic-table">
+
+<xsl:template match="//periodic-table">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -17,12 +22,17 @@
 		<script type="text/javascript" src="element.js"></script>
 		<script type="text/javascript" src="pte.js"></script>
 		<script type="text/javascript" src="plugin.js"></script>
-		<script type="text/javascript" src="oxidationstates.js"></script>
-		<script type="text/javascript" src="discovery.js"></script>
 		<script type="text/javascript">
+		<xsl:apply-templates select="//plugin" mode="javascript" />
+		PLUGINS = new Array();
 		$(function() {
-			onDocumentLoaded();			
-		});	
+			<xsl:for-each select="//plugin">
+				PLUGINS[<xsl:value-of select="position() - 1" />]
+					= new Plugin_<xsl:value-of select="id/text()" />();
+			</xsl:for-each>
+
+			onDocumentLoaded();
+		});
 		</script>
 	</head>
 	<body>
@@ -104,12 +114,17 @@
 <xsl:template match="controls-placeholder">
 	<xsl:choose>
 		<xsl:when test="@name = 'main'">
-			<div class="plugin-board" id="plugin-board-discovery">
-				Elements known before <span id="p-discovery-label-year">1700</span>
-				<div style="" id="p-discovery-ctrl-year"></div>
-			</div>
+			<xsl:for-each select="//plugins/plugin">
+				<xsl:variable name="pluginId" select="id/text()" />
+				<xsl:element name="div">
+					<xsl:attribute name="class">plugin-board</xsl:attribute>
+					<xsl:attribute name="id">plugin-board-<xsl:value-of select="$pluginId" /></xsl:attribute>
+					
+					<xsl:apply-templates select="board/*|board/text()" mode="deep-copy" />
+				</xsl:element>
+			</xsl:for-each>
 			
-			<div class="plugin-board" id="plugin-board-oxidationstates">
+			<xsl:variable name="xx"><div class="plugin-board" id="plugin-board-oxidationstates">
 				<div id="p-oxidationstates-radio">
 					<input type="radio" name="p-oxidationstates-state" value="-4" id="p-oxidationstates-st--4" />
 						<label for="p-oxidationstates-st--4">-IV</label>
@@ -137,6 +152,7 @@
 						<label for="p-oxidationstates-st-8">VIII</label>
 				</div>
 			</div>
+			</xsl:variable>
 			
 			<div id="dialog-element-details">
 				<div id="tabs-element-details">
@@ -203,6 +219,13 @@
 			<xsl:value-of select="@name" />
 		</xsl:otherwise>
 	</xsl:choose>
+</xsl:template>
+
+<xsl:template match="*" mode="deep-copy">
+	<xsl:copy>
+		<xsl:copy-of select="@*" />
+		<xsl:apply-templates mode="deep-copy" />
+	</xsl:copy>
 </xsl:template>
 
 </xsl:stylesheet>
