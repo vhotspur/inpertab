@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<plugin>
-	<name>Discovery dates</name>
+<plugin xmlns:l="http://github.com/vhotspur/sxmloc">
+	<name><l:g>Discovery dates</l:g></name>
 	<id>discovery</id>
 
 	<board>
-		Elements known before 
-			<span id="p-discovery-label-year">1700</span>
+		<l:g>Elements known before 
+			<span id="p-discovery-label-year">1700</span></l:g>
 		<div id="p-discovery-ctrl-year"></div>
 	</board>
 

@@ -201,4 +201,8 @@
 	</xsl:copy>
 </xsl:template>
 
+<xsl:template match="l:g">
+	<xsl:apply-templates />
+</xsl:template>
+
 </xsl:stylesheet>

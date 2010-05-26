@@ -7,7 +7,7 @@
 	<xsl:variable name="pluginId" select="id/text()" />
 	function Plugin_<xsl:value-of select="$pluginId" />() {
 		this.inheritFrom = Plugin;
-		this.inheritFrom("<xsl:value-of select="$pluginId" />", "<xsl:value-of select="name/text()" />");
+		this.inheritFrom("<xsl:value-of select="$pluginId" />", "<xsl:value-of select="normalize-space(name//text())" />");
 		
 		this.init = function() {
 			<xsl:value-of select="init/text()" />
@@ -24,7 +24,7 @@
 		<xsl:for-each select="method">
 			this.<xsl:value-of name="name" select="@name" />
 				= function(<xsl:value-of select="@parameters" />) {
-				<xsl:value-of select="text()" />
+				<xsl:apply-templates />
 			}
 		</xsl:for-each>
 	}

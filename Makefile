@@ -7,7 +7,7 @@ RM = rm -f
 all: table.html data.js
 
 input.xml: used-plugins.txt layout.xml
-	./merge-inputs.sh >$@
+	./merge-inputs.sh "$(LANG)" >$@
 
 data/data.xml: data/gathered.xml data/unify-data.xsl
 	$(XSLT) data/unify-data.xsl data/gathered.xml >$@

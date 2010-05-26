@@ -1,5 +1,7 @@
 #!/bin/sh
 
+lang="$1";
+
 removeXmlSignature() {
 	tail -n +2 "$@";
 }
@@ -11,8 +13,13 @@ removeXmlSignature layout.xml
 
 
 echo '<plugins>'
-while read plugin_file; do
-	removeXmlSignature "$plugin_file"
+while read plugin_id; do
+	if [ -e "plugins/${plugin_id}/${lang}.po" ]; then
+		sxmloc-translate plugins/${plugin_id}/${lang}.po "plugins/${plugin_id}/${plugin_id}.xml" \
+			| removeXmlSignature;
+	else
+		removeXmlSignature "plugins/${plugin_id}/${plugin_id}.xml"
+	fi
 done <used-plugins.txt
 echo '</plugins>'
 

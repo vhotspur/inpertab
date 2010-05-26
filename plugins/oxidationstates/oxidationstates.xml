@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<plugin>
-	<name>Oxidation states</name>
+<plugin xmlns:l="http://github.com/vhotspur/sxmloc">
+	<name><l:g>Oxidation states</l:g></name>
 	<id>oxidationstates</id>
 
 	<board>

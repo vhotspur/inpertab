@@ -1,2 +1,2 @@
-plugins/discovery.xml
-plugins/oxidationstates.xml
+discovery
+oxidationstates
