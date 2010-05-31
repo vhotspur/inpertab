@@ -1,4 +1,5 @@
-LANG = en
+LANG =
+# LANG = en
 # LANG = cz
 
 XSLT = xsltproc
@@ -26,11 +27,15 @@ l10n/%.po: l10n/pte.pot
 		echo "Language not available: use msginit(1) to create corresponding PO file."; \
 	fi
 
+# special target when default language selected
+l10n/.po:
+
 makehtml-l10n.xsl: makehtml.xsl l10n/$(LANG).po
 	if [ -f "l10n/$(LANG).po" ]; then \
 		sxmloc-translate l10n/$(LANG).po makehtml.xsl >$@; \
 	else \
-		echo "Warning: localization '$(LANG)' not available. Using default."; \
+		[ -z "$(LANG)" ] || \
+			echo "Warning: localization '$(LANG)' not available. Using default."; \
 		sxmloc-translate l10n/pte.pot makehtml.xsl >$@; \
 	fi
 
