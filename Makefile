@@ -1,6 +1,4 @@
-LANG =
-# LANG = en
-# LANG = cz
+TRANSLATION = cz
 
 XSLT = xsltproc
 RM = rm -f
@@ -8,7 +6,11 @@ RM = rm -f
 all: table.html data.js
 
 input.xml: used-plugins.txt layout.xml
-	./merge-inputs.sh "$(LANG)" >$@
+	@if [ -z "$(TRANSLATION)" ]; then \
+		echo "Error: TRANSLATION variable not set."; \
+		exit 1; \
+	fi
+	./merge-inputs.sh "$(TRANSLATION)" >$@
 
 data/data.xml: data/gathered.xml data/unify-data.xsl
 	$(XSLT) data/unify-data.xsl data/gathered.xml >$@
@@ -27,16 +29,19 @@ l10n/%.po: l10n/pte.pot
 		echo "Language not available: use msginit(1) to create corresponding PO file."; \
 	fi
 
-# special target when default language selected
+# special target when no language selected
 l10n/.po:
 
-makehtml-l10n.xsl: makehtml.xsl l10n/$(LANG).po
-	if [ -f "l10n/$(LANG).po" ]; then \
-		sxmloc-translate l10n/$(LANG).po makehtml.xsl >$@; \
+makehtml-l10n.xsl: makehtml.xsl l10n/$(TRANSLATION).po l10n/pte.pot
+	if [ -f "l10n/$(TRANSLATION).po" ]; then \
+		sxmloc-translate l10n/$(TRANSLATION).po makehtml.xsl >$@; \
 	else \
-		[ -z "$(LANG)" ] || \
-			echo "Warning: localization '$(LANG)' not available. Using default."; \
-		sxmloc-translate l10n/pte.pot makehtml.xsl >$@; \
+		if [ -z "$(TRANSLATION)" ]; then \
+			echo "Error: you must select localization via the TRANSLATION variable."; \
+		else \
+			echo "Error: localization '$(TRANSLATION)' not available."; \
+		fi; \
+		exit 1; \
 	fi
 
 table.html: makehtml-l10n.xsl input.xml
