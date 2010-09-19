@@ -108,7 +108,9 @@
 			</xsl:attribute>
 		</xsl:if>
 		
+		<span>
 		<xsl:apply-templates select="$cell/*|$cell/text()" />
+		</span>
 		
 	</xsl:element>
 

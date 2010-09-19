@@ -31,6 +31,22 @@ function PeriodicTable() {
 		}
 	};
 	
+	this.showElement = function(symbol) {
+		$("#elem_" + symbol + " SPAN").show();
+	}
+	
+	this.hideElements = function() {
+		this.forEachElement(0, function(x, element) {
+			$("#elem_" + element.symbol + " SPAN").hide();
+		});
+	}
+	
+	this.showElements = function() {
+		this.forEachElement(0, function(x, element) {
+			$("#elem_" + element.symbol + " SPAN").show();
+		});
+	}
+	
 	this.forEachElement = function(param, callback) {
 		for (var i=0; i<this.elements.length; i++) {
 			callback(param, this.elements[i]);
@@ -38,6 +54,9 @@ function PeriodicTable() {
 	};
 	
 	this.getElementInfo = function(symbol) {
+		if (typeof(symbol) == 'number') {
+			return this.elements[symbol];
+		}
 		for (var i=0; i<this.elements.length; i++) {
 			if (this.elements[i].symbol == symbol) {
 				return this.elements[i];
