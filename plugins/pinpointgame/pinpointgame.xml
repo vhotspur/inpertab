@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<plugin xmlns:l="http://github.com/vhotspur/sxmloc">
+	<name><l:g>Element pin-pointing</l:g></name>
+	<id>pinpointgame</id>
+
+	<board>
+		<div id="p-pinpointgame-quest">
+			<l:g>Pin-point the following element: <span id="p-pinpointgame-clue" />.</l:g>
+		</div>
+		<div id="p-pinpointgame-congrats">
+			<p id="p-pinpointgame-congrats-msg">
+				<span style="font-size: 150%; color: blue">
+					<l:g>Congratulations! You got it right :-).</l:g>
+				</span>
+				<br />
+				<span id="p-pinpointgame-congrats-first-try">
+					<l:g>And on the first try! Excellent ;-).</l:g>
+				</span>
+				<span id="p-pinpointgame-congrats-tries">
+					<l:g>Attempts needed: <span />.</l:g>
+				</span>
+			</p>
+		</div>
+	</board>
+
+	<resume>
+		this.nextRound();
+	</resume>
+	
+	<suspend>
+		this.pte.showElements();
+		$("TD.element").unbind("click");
+		$("TD.element").bind("click", this.pte, function(event) {
+			event.data.showElementDetails($(this).attr("id").substring(5));		
+		});
+	</suspend>
+
+	<init>
+		this.allowedElements = new Array("H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Uub", "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo");
+		this.answer = -1;
+		$("#p-pinpointgame-congrats").hide();
+	</init>
+	
+	<method name="successDialog" parameters="">
+		$("#p-pinpointgame-quest").hide();
+		$("#p-pinpointgame-congrats").show();
+		if (this.answerTries == 0) {
+			$("#p-pinpointgame-congrats-first-try").show();
+			$("#p-pinpointgame-congrats-tries").hide();
+		} else {
+			$("#p-pinpointgame-congrats-first-try").hide();
+			$("#p-pinpointgame-congrats-tries SPAN").text(this.answerTries);
+			$("#p-pinpointgame-congrats-tries").show();
+		}
+		$("#p-pinpointgame-congrats").show();
+		$("#p-pinpointgame-congrats").fadeOut(4000, function() {
+			$("#p-pinpointgame-quest").fadeIn("slow");
+		});
+		this.nextRound();
+	</method>
+	
+	<method name="nextRound" parameters="">
+		var idx = Math.floor(Math.random() * this.allowedElements.length);
+		this.answer = this.allowedElements[idx];
+		this.answerElement = this.pte.getElementInfo(this.answer);
+		this.answerTries = 0;
+		
+		$("#p-pinpointgame-clue").text(this.answerElement.symbol);
+		$("TD.element").css("background-color", "white");
+		this.pte.hideElements();
+		
+		$("TD.element").unbind("click");
+		$("TD.element").bind("click", this, function(event) {
+			var plugin = event.data;
+			var element = $(this).attr("id").substring(5);
+			var elementInfo = plugin.pte.getElementInfo(element);
+			var symbol = elementInfo.symbol;
+			if (plugin.answer == symbol) {
+				$(this).css("background-color", "green");
+				plugin.successDialog();
+			} else {
+				/* bad answer */
+				$(this).css("background-color", "red");
+				plugin.pte.showElement(symbol);
+				plugin.answerTries++;
+			}
+		});
+	</method>
+</plugin>
+
