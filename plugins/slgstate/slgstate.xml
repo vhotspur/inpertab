@@ -5,8 +5,10 @@
 
 	<board>
 		<div id="p-slgstate-slider">
-			<l:g>Temperature (in Kelvin) 
-				<span id="p-slgstate-label-temp">0</span></l:g>
+			<l:g>Temperature:
+				<input type="text" maxlength="5" id="p-slgstate-in-kelvin" /> (K),
+				<input type="text" maxlength="5" id="p-slgstate-in-celsius" /> (°C)
+			</l:g>
 			<div id="p-slgstate-ctrl-temp"></div>
 		</div>
 		<div id="p-slgstate-legend">
@@ -30,6 +32,13 @@
 			padding: 5px;
 			border: 1px solid;
 			margin-left: 1ex;
+		}
+		#p-slgstate-slider INPUT {
+			width: 5em;
+			text-align: right;
+		}
+		.error {
+			background-color: #f99;
 		}
 	</css>
 	
@@ -57,7 +66,12 @@
                         slide: $.proxy(this.onSlide, this),
                         change: $.proxy(this.onSlide, this)
                 });
-                $("#p-slgstate-ctrl-temp").slider("value", 273);
+		$("#p-slgstate-ctrl-temp").slider("value", 293);
+		this.bindTextInputChanges("#p-slgstate-in-kelvin",
+			$.proxy(this.onKelvin, this));
+		this.bindTextInputChanges("#p-slgstate-in-celsius",
+			$.proxy(this.onCelsius, this));
+		this.updateFromFields = 0;
 		this.clearClasses();
 	</init>
 	
@@ -69,7 +83,64 @@
 			var state = elem.getStateOfMatter(temp);
 			pte.elementAddClass(elem, "p-slgstate-" + state);	
                 });
+		if (!this.updateFromFields) {
+			$("#p-slgstate-in-kelvin").val(ui.value);
+			$("#p-slgstate-in-celsius").val(ui.value - 273);
+		}
                 return true;
+	</method>
+	
+	<method name="updateSlider" parameters="kelvin">
+		$("#p-slgstate-ctrl-temp").slider("value", kelvin);
+	</method>
+	
+	<method name="checkAndUpdate" parameters="inpField, otherField, tempShift, otherTempShift">
+		if (this.updateFromFields) {
+			return;
+		}
+		
+		var ctrl = "#p-slgstate-in-" + inpField;
+		var ctrl2 = "#p-slgstate-in-" + otherField;
+		
+		$(ctrl).removeClass("error");
+		$(ctrl2).removeClass("error");
+		
+		var t = $(ctrl).val();
+		if (t == "") {
+			return;
+		}
+		
+		var kelvin = t * 1 + tempShift;
+		if (!this.checkKelvin(kelvin)) {
+			$(ctrl).addClass("error");
+			return;
+		}
+		
+		this.updateFromFields = 1;
+		this.updateSlider(kelvin);
+		$(ctrl2).val(kelvin + otherTempShift);
+		this.updateFromFields = 0;
+	</method>
+	
+	<method name="checkKelvin" parameters="temp">
+		if (isNaN(temp)) {
+			return false;
+		}
+		if (temp &lt; 0) {
+			return false;
+		}
+		if (temp &gt; 6000) {
+			return false;
+		}
+		return true;
+	</method>
+	
+	<method name="onKelvin">
+		this.checkAndUpdate("kelvin", "celsius", 0, -273);
+	</method>
+	
+	<method name="onCelsius">
+		this.checkAndUpdate("celsius", "kelvin", 273, 0);
 	</method>
 </plugin>
 
