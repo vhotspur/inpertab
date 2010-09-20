@@ -48,8 +48,8 @@
 			<xsl:apply-templates />
 		</table>
 		<div id="ctrl-show-plugins">
-			
 		</div>
+		<pre id="dump"></pre>
 	</body>
 </html>
 </xsl:template>

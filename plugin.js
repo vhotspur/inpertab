@@ -26,6 +26,38 @@ function Plugin(id, name) {
 	};
 	this.init = function() {
 	};
+	
+	this.dump_ = function(obj, level) {
+		var out = "";
+		
+		var padding = "";
+		for (var j = -1; j < level; j++) {
+			padding += "   ";
+		}
+		
+		if (typeof obj == 'object') {
+			for (var item in obj) {
+				var value = obj[item];
+				if (typeof value == 'object') {
+					out += padding + "'" + item
+						+ "' => ...\n";
+					out += this.dump_(value, level + 1);
+				} else {
+					out += padding + "'" + item + "' => '"
+						+ value + "'\n";
+				}
+			}
+		} else {
+			out += "'" + obj + "'";
+		}
+		
+		return out;
+	};
+	
+	this.dump = function(what) {
+		var s = this.dump_(what, 0);
+		$("#dump").text(s);
+	};
 }
 
 
