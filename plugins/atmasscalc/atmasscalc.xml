@@ -40,68 +40,22 @@
 		this.recalculate();
 	</init>
 	
-	<method name="charIsUpper" parameters="c">
-		return ((c &gt;= 'A') &amp;&amp; (c &lt;= 'Z'));
-	</method>
-	<method name="charIsLower" parameters="c">
-		return ((c &gt;= 'a') &amp;&amp; (c &lt;= 'z'));
-	</method>
-	<method name="charIsDigit" parameters="c">
-		return ((c &gt;= '0') &amp;&amp; (c &lt;= '9'));
-	</method>
-	
-	<method name="parseFormula" parameters="formula">
-		var result = new Array();
-		formula = formula + "#";
-		var i = 0;
-		while (i &lt; formula.length) {
-			var c = formula.charAt(i);
-			if (c == '#') {
-				break;
-			}
-			if (this.charIsUpper(c)) {
-				var smb = c;
-				i++;
-				while (this.charIsLower(formula.charAt(i))) {
-					smb += formula.charAt(i);
-					i++;
-				}
-				var info = this.pte.getElementInfo(smb);
-				if (info == 0) {
-					continue;
-				}
-				result[result.length] = new Array(smb, 1);
-				continue;
-			}
-			if (this.charIsDigit(c)) {
-				var number = c;
-				number++; number--;
-				i++;
-				while (this.charIsDigit(formula.charAt(i))) {
-					var tmp = formula.charAt(i) * 1;
-					number = number * 10 + tmp;
-					i++;
-				}
-				if (result.length > 0) {
-					result[result.length - 1][1] = number;
-				}
-				continue;
-			}
-			i++;
-		}
-		
-		return result;
-	</method>
-	
 	<method name="calculateMass" parameters="formula">
 		var i;
 		var mass = 0.0;
 		for (i = 0; i &lt; formula.length; i++) {
-			var info = this.pte.getElementInfo(formula[i][0]);
-			if (info == 0) {
-				continue;
+			var m;
+			if (formula[i][0] == 0) {
+				var info = this.pte.getElementInfo(formula[i][1]);
+				if (info == 0) {
+					continue;
+				}
+				m = info.mass;
+			} else {
+				m = this.calculateMass(formula[i][1]);
 			}
-			mass += info.mass * formula[i][1];
+			
+			mass += m * formula[i][2];
 		}
 		return mass;
 	</method>
@@ -110,18 +64,27 @@
 		var i;
 		var masses = new Array();
 		for (i = 0; i &lt; formula.length; i++) {
-			var info = this.pte.getElementInfo(formula[i][0]);
-			if (info == 0) {
-				continue;
+			var mass;
+			var count = formula[i][2];
+			if (formula[i][0] == 0) {
+				var info = this.pte.getElementInfo(formula[i][1]);
+				if (info == 0) {
+					continue;
+				}
+				mass = info.mass;
+				mass *= 1.0;
+				mass = mass.toFixed(3);
+			} else {
+				mass = this.formatMassCalculation(formula[i][1]);
+				if (count > 1) {
+					mass = "(" + mass + ")";
+				}
 			}
-			var mass = info.mass;
-			mass *= 1.0;
-			mass = mass.toFixed(3);
 			
-			if (formula[i][1] > 1) {
+			if (count > 1) {
 				masses[masses.length]
 					= mass + " &amp;middot; "
-					+ formula[i][1];
+					+ count;
 			} else {
 				masses[masses.length] = mass;
 			}
@@ -130,26 +93,40 @@
 	</method>
 	
 	<method name="formatFormula" parameters="formula">
-		var disp = $.map(formula, function(item) {
-			var out = item[0];
-			if (item[1] &gt; 1) {
-				out += "&lt;sub&gt;" + item[1] + "&lt;/sub&gt;";
+		var i;
+		var result = "";
+		for (i = 0; i &lt; formula.length; i++) {
+			var out;
+			var count = formula[i][2];
+			if (formula[i][0] == 0) {
+				out = formula[i][1];
+			} else {
+				out = this.formatFormula(formula[i][1]);
+				if (count > 1) {
+					out = "(" + out + ")";
+				}
 			}
-			return out;
-		});
-		return disp.join("");
+			if (count > 1) {
+				out += "&lt;sub&gt;" + count + "&lt;/sub&gt;";
+			}
+			result += out;
+		}
+		return result;
 	</method>
 	
 	<method name="recalculate">
-		var formula = $("#p-atmasscalc-input").val();
-		var parsed = this.parseFormula(formula);
+		var f = $("#p-atmasscalc-input").val();
+		var formula = new ChemicalFormula(this.pte, f);
+		
+		var parsed = formula.getFormula();
 		
 		var formulaFormatted = this.formatFormula(parsed);
 		var mass = this.calculateMass(parsed);
+		mass *= 1.0;
 		mass = mass.toFixed(3);
 		var massCalculation = this.formatMassCalculation(parsed);
 		if (massCalculation != "") {
-			massCalculation = "(" + massCalculation + ")";
+			massCalculation = "[" + massCalculation + "]";
 		} else {
 			massCalculation = "&amp;nbsp;";
 		}
