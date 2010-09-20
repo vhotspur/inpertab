@@ -29,7 +29,37 @@ function ChemElement(arg) {
 	};
 	
 	this.boilingPoint = arg.boilingPoint;
+	if (this.boilingPoint == "") {
+		this.boilingPoint = -1;
+	}
 	this.meltingPoint = arg.meltingPoint;
+	if (this.meltingPoint == "") {
+		this.meltingPoint = -1;
+	}
+	
+	/** Element state of matter at given temperature.
+	 * @param temperature Temperature in Kelvin
+	 * @return Element state of matter as string
+	 * @retval "unknown" Invalid temperature or state not known
+	 * @retval "solid" Solid state
+	 * @retval "liquid" Liquid state
+	 * @retval "gas" Gas state
+	 */
+	this.getStateOfMatter = function(temperature) {
+		if (temperature < 0) {
+			return "unknown";
+		}
+		if ((this.meltingPoint == -1) || (this.boilingPoint == -1)) {
+			return "unknown";
+		}
+		if (temperature < this.meltingPoint) {
+			return "solid";
+		} else if (temperature < this.boilingPoint) {
+			return "liquid";
+		} else {
+			return "gas";
+		}
+	};
 	
 	if (arg.discoveryYear == "" || arg.discoveryYear <= 100) {
 		arg.discoveryYear = 0;

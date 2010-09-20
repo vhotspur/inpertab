@@ -82,12 +82,22 @@ function PeriodicTable() {
 		this._elementDetails("english-name", info.englishName);
 		this._elementDetails("period", info.period);
 		this._elementDetails("group", info.group);
-		this._elementDetails("boiling-point-kelvin", info.boilingPoint);
-		this._elementDetails("melting-point-kelvin", info.meltingPoint);
-		// so far, let it like this - need to check that the 
-		// boiling/melting points are really set
-		this._elementDetails("boiling-point-celsius", info.boilingPoint - 273);
-		this._elementDetails("melting-point-celsius", info.meltingPoint - 273);
+		
+		if (info.boilingPoint < 0) {
+			this._elementDetails("boiling-point-kelvin", "?");
+			this._elementDetails("boiling-point-celsius", "?");
+		} else {
+			this._elementDetails("boiling-point-kelvin", info.boilingPoint);
+			this._elementDetails("boiling-point-celsius", info.boilingPoint - 273);
+		}
+		if (info.meltingPoint < 0) {
+			this._elementDetails("melting-point-kelvin", "?");
+			this._elementDetails("melting-point-celsius", "?");
+		} else {
+			this._elementDetails("melting-point-kelvin", info.meltingPoint);
+			this._elementDetails("melting-point-celsius", info.meltingPoint - 273);
+		}
+		
 		$("#dialog-element-details").dialog({
 			modal: true,
 			buttons: { "Close": function() { $(this).dialog("close"); } },
