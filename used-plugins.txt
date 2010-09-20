@@ -2,3 +2,4 @@ discovery
 oxidationstates
 pinpointgame
 slgstate
+atmasscalc
