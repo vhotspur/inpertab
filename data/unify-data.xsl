@@ -60,8 +60,8 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 			<name lang="univ">
 				<xsl:value-of select="$info3/name[@lang='univ']" />
 			</name>
-			<name lang="cz">
-				<xsl:value-of select="$info3/name[@lang='cz']" />
+			<name lang="cs">
+				<xsl:value-of select="$info3/name[@lang='cs']" />
 			</name>
 		</names>
 

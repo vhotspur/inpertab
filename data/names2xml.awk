@@ -14,7 +14,7 @@ END {
 	printf "\t<element symbol=\"%s\">\n", $1;
 	
 	printf "\t\t<name lang=\"univ\">%s</name>\n", $2;
-	printf "\t\t<name lang=\"cz\">%s</name>\n", $3;
+	printf "\t\t<name lang=\"cs\">%s</name>\n", $3;
 	
 	printf "\t</element>\n";
 }

@@ -1,4 +1,4 @@
-PO_FILES = cz.po
+PO_FILES = cs.po
 
 all: $(PO_FILES)
 

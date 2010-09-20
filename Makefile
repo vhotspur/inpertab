@@ -1,4 +1,4 @@
-TRANSLATION = cz
+TRANSLATION = cs
 
 DATA_ORIGINAL = \
 	data/cafeconleche-allelements.xml \
