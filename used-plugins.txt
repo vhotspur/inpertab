@@ -1,3 +1,4 @@
 discovery
 oxidationstates
 pinpointgame
+slgstate

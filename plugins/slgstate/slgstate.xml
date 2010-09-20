@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<plugin xmlns:l="http://github.com/vhotspur/sxmloc">
+	<name><l:g>State of matter</l:g></name>
+	<id>slgstate</id>
+
+	<board>
+		<div id="p-slgstate-slider">
+			<l:g>Temperature (in Kelvin) 
+				<span id="p-slgstate-label-temp">0</span></l:g>
+			<div id="p-slgstate-ctrl-temp"></div>
+		</div>
+		<div id="p-slgstate-legend">
+			<l:g>Legend:
+				<span class="p-slgstate-solid">solid</span>
+				<span class="p-slgstate-liquid">liquid</span>
+				<span class="p-slgstate-gas">gas</span>
+				<span class="p-slgstate-unknown">unknown</span>
+			</l:g>
+		</div>
+	</board>
+	
+	<css>
+		.p-slgstate-solid { background-color: #ccc; }
+		.p-slgstate-liquid { background-color: #99f; }
+		.p-slgstate-gas { background-color: #ff9; }
+		#p-slgstate-legend, #p-slgstate-slider {
+			margin: 1em;
+		}
+		#p-slgstate-legend SPAN {
+			padding: 5px;
+			border: 1px solid;
+		}
+	</css>
+	
+	<method name="clearClasses" parameters="">
+		this.pte.forEachElement2(null, function(pte, elem, xxx) {
+			pte.elementRemoveClass(elem, "p-slgstate-solid");	
+			pte.elementRemoveClass(elem, "p-slgstate-liquid");
+			pte.elementRemoveClass(elem, "p-slgstate-gas");
+                });
+	</method>
+
+	<resume>
+		$("#p-slgstate-ctrl-temp").slider("value", $("#p-slgstate-ctrl-temp").slider("value"));
+	</resume>
+	
+	<suspend>
+		this.clearClasses();
+	</suspend>
+
+	<init>
+		// initialize the controls
+                $("#p-slgstate-ctrl-temp").slider({
+                        max: 6000,
+                        min: 0,
+                        slide: $.proxy(this.onSlide, this),
+                        change: $.proxy(this.onSlide, this)
+                });
+                $("#p-slgstate-ctrl-temp").slider("value", 273);
+		this.clearClasses();
+	</init>
+	
+	<method name="onSlide" parameters="event, ui">
+		$("#p-slgstate-label-temp").text(ui.value);
+                this.pte.clearHighlighting();
+		this.clearClasses();
+                this.pte.forEachElement2(ui.value, function(pte, elem, temp) {
+			var state = elem.getStateOfMatter(temp);
+			pte.elementAddClass(elem, "p-slgstate-" + state);	
+                });
+                return true;
+	</method>
+</plugin>
+
