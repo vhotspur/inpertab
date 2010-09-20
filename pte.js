@@ -5,13 +5,21 @@ function PeriodicTable() {
 		this.elements[this.elements.length] = element;
 	}
 	
+	this._jq = function(symbol) {
+		if (typeof symbol != "string") {
+			return $("#elem_" + symbol.symbol);
+		} else {
+			return $("#elem_" + symbol);
+		}
+	};
+	
 	this._elementBackground = function(symbol, color) {
 		$("#elem_" + symbol).css("background-color", color);
 	}
 	
 	this.clearHighlighting = function() {
 		for (var i=0; i<this.elements.length; i++) {
-			this._elementBackground(this.elements[i].symbol, "white");
+			this._elementBackground(this.elements[i].symbol, "");
 		}
 	};
 	
@@ -29,6 +37,14 @@ function PeriodicTable() {
 		} else {
 			this._highlightElementBySymbol(elementOrSymbol.symbol);
 		}
+	};
+	
+	this.elementAddClass = function(symbol, class) {
+		this._jq(symbol).addClass(class);
+	};
+	
+	this.elementRemoveClass = function(element, class) {
+		this._jq(element).removeClass(class);
 	};
 	
 	this.showElement = function(symbol) {
@@ -50,6 +66,12 @@ function PeriodicTable() {
 	this.forEachElement = function(param, callback) {
 		for (var i=0; i<this.elements.length; i++) {
 			callback(param, this.elements[i]);
+		}
+	};
+	
+	this.forEachElement2 = function(param, callback) {
+		for (var i=0; i<this.elements.length; i++) {
+			callback(this, this.elements[i], param);
 		}
 	};
 	
