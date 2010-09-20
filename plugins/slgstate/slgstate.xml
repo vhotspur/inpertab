@@ -29,6 +29,7 @@
 		#p-slgstate-legend SPAN {
 			padding: 5px;
 			border: 1px solid;
+			margin-left: 1ex;
 		}
 	</css>
 	

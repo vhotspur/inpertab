@@ -81,7 +81,7 @@
 				}
 			}
 			
-			if (count > 1) {
+			if (count &gt; 1) {
 				masses[masses.length]
 					= mass + " &amp;middot; "
 					+ count;
@@ -102,11 +102,11 @@
 				out = formula[i][1];
 			} else {
 				out = this.formatFormula(formula[i][1]);
-				if (count > 1) {
+				if (count &gt; 1) {
 					out = "(" + out + ")";
 				}
 			}
-			if (count > 1) {
+			if (count &gt; 1) {
 				out += "&lt;sub&gt;" + count + "&lt;/sub&gt;";
 			}
 			result += out;
