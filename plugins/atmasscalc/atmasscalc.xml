@@ -50,6 +50,7 @@
 				if (info == 0) {
 					continue;
 				}
+				this.pte.highlightElement(info);
 				m = info.mass;
 			} else {
 				m = this.calculateMass(formula[i][1]);
@@ -115,6 +116,7 @@
 	</method>
 	
 	<method name="recalculate">
+		this.pte.clearHighlighting();
 		var f = $("#p-atmasscalc-input").val();
 		var formula = new ChemicalFormula(this.pte, f);
 		
