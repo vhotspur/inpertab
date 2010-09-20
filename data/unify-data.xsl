@@ -46,15 +46,24 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 
 	<xsl:variable name="info1" select="//kdeedu:atom[@id = $element]" />
 	<xsl:variable name="info2" select="//ATOM[SYMBOL/text() = $element]" />
+	<xsl:variable name="info3" select="//element-names/element[@symbol = $element]" />
 
 	<xsl:element name="element">
 		<xsl:attribute name="id">
 			<xsl:value-of select="$element" />
 		</xsl:attribute>
 
-		<name>
-			<xsl:apply-templates select="$info1/kdeedu:label[@dictRef='bo:name']/@value" />
-		</name>
+		<names>
+			<name lang="en">
+				<xsl:apply-templates select="$info1/kdeedu:label[@dictRef='bo:name']/@value" />
+			</name>
+			<name lang="univ">
+				<xsl:value-of select="$info3/name[@lang='univ']" />
+			</name>
+			<name lang="cz">
+				<xsl:value-of select="$info3/name[@lang='cz']" />
+			</name>
+		</names>
 
 		<atomic-number>
 			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:atomicNumber']/text()" />

@@ -1,6 +1,11 @@
 TRANSLATION = cz
 
-XSLT = xsltproc
+DATA_ORIGINAL = \
+	data/cafeconleche-allelements.xml \
+	data/kdeedu-elements.xml \
+	data/names.xml
+
+XSLT = xsltproc --stringparam TRANSLATION "$(TRANSLATION)"
 RM = rm -f
 
 all: table.html data.js
@@ -14,6 +19,12 @@ input.xml: used-plugins.txt layout.xml
 
 data/data.xml: data/gathered.xml data/unify-data.xsl
 	$(XSLT) data/unify-data.xsl data/gathered.xml >$@
+
+data/gathered.xml: $(DATA_ORIGINAL)
+	touch $@
+
+data/names.xml: data/names.txt data/names2xml.awk
+	data/names2xml.awk <data/names.txt >$@
 
 data.js: data/data2js.xsl data/data.xml 
 	$(XSLT) data/data2js.xsl data/data.xml >$@

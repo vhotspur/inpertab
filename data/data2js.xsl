@@ -2,6 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:kdeedu="http://www.xml-cml.org/schema">
 <xsl:output method="text" />
+<xsl:param name="TRANSLATION" select="''" />
 
 <xsl:variable name="NL">
 <xsl:text>
@@ -38,10 +39,18 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<xsl:text>", period : "</xsl:text>
 	<xsl:value-of select="period" />
 	<xsl:text>",</xsl:text>
-	
+
 	<!-- names -->
 	<xsl:text>localName : "</xsl:text>
-	<xsl:value-of select="name" />
+	<xsl:value-of select="names/name[@lang=$TRANSLATION]" />
+	<xsl:text>",</xsl:text>
+	
+	<xsl:text>universalName : "</xsl:text>
+	<xsl:value-of select="names/name[@lang='univ']" />
+	<xsl:text>",</xsl:text>
+	
+	<xsl:text>englishName : "</xsl:text>
+	<xsl:value-of select="names/name[@lang='en']" />
 	<xsl:text>",</xsl:text>
 	
 	<!-- discovery -->
