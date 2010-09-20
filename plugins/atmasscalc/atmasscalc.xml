@@ -33,10 +33,7 @@
 
 	<init>
 		$("#p-atmasscalc-mass").text("0.000");
-		$("#p-atmasscalc-input").change($.proxy(this.recalculate, this));
-		$("#p-atmasscalc-input").keypress($.proxy(this.recalculate, this));
-		$("#p-atmasscalc-input").keydown($.proxy(this.recalculate, this));
-		$("#p-atmasscalc-input").keyup($.proxy(this.recalculate, this));
+		this.bindTextInputChanges("#p-atmasscalc-input", $.proxy(this.recalculate, this));
 		this.recalculate();
 	</init>
 	

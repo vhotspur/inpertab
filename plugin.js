@@ -58,6 +58,13 @@ function Plugin(id, name) {
 		var s = this.dump_(what, 0);
 		$("#dump").text(s);
 	};
+	
+	this.bindTextInputChanges = function(ctrl, func) {
+		$(ctrl).change(func);
+		$(ctrl).keypress(func);
+		$(ctrl).keydown(func);
+		$(ctrl).keyup(func);
+	};
 }
 
 
