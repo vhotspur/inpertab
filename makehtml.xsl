@@ -29,6 +29,7 @@
 		<script type="text/javascript" src="periodic.js"></script>
 		<script type="text/javascript" src="element.js"></script>
 		<script type="text/javascript" src="pte.js"></script>
+		<script type="text/javascript" src="parser.js"></script>
 		<script type="text/javascript" src="plugin.js"></script>
 		<script type="text/javascript">
 		<xsl:apply-templates select="//plugin" mode="javascript" />
