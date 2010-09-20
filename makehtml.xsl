@@ -16,8 +16,13 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<title><l:g>Periodic table</l:g></title>
-		<link type="text/css" href="css/sunny/jquery-ui-1.8.custom.css" rel="stylesheet" />	
-		<link type="text/css" href="table.css" rel="stylesheet" />	
+		<link type="text/css" href="css/sunny/jquery-ui-1.8.custom.css" rel="stylesheet" />
+		<link type="text/css" href="table.css" rel="stylesheet" />
+		<style type="text/css">
+			<xsl:for-each select="//plugin">
+				<xsl:value-of select="css/text()" />
+			</xsl:for-each>
+		</style>
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
 		<script type="text/javascript" src="data.js"></script>
