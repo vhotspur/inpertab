@@ -54,3 +54,8 @@ TABLE#pte .groups-arabic TH {
 #element-details-basic TD.element-details-icon {
 	text-align: center;
 }
+
+
+.element-highlight {
+	background-color: #feeebd;
+}

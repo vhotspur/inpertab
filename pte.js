@@ -19,12 +19,12 @@ function PeriodicTable() {
 	
 	this.clearHighlighting = function() {
 		for (var i=0; i<this.elements.length; i++) {
-			this._elementBackground(this.elements[i].symbol, "");
+			this._jq(this.elements[i]).removeClass("element-highlight");
 		}
 	};
 	
 	this._highlightElementBySymbol = function(symbol) {
-		this._elementBackground(symbol, "#feeebd");
+		this._jq(symbol).addClass("element-highlight");
 	};
 	
 	this.highlightElementByIndex = function(idx) {
