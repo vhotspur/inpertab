@@ -104,6 +104,8 @@ function PeriodicTable() {
 		this._elementDetails("english-name", info.englishName);
 		this._elementDetails("period", info.period);
 		this._elementDetails("group", info.group);
+		this._elementDetails("electronegativity", info.electronegativity);
+		this._elementDetails("density", info.density);
 		
 		if (info.boilingPoint < 0) {
 			this._elementDetails("boiling-point-kelvin", "?");

@@ -86,6 +86,16 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	<xsl:value-of select="state-of-matter/melting-point" />
 	<xsl:text>", </xsl:text>
 	
+	<!-- electronegativity -->
+	<xsl:text>electronegativity : "</xsl:text>
+	<xsl:value-of select="electronegativity" />
+	<xsl:text>",</xsl:text>
+	
+	<!-- density -->
+	<xsl:text>density : "</xsl:text>
+	<xsl:value-of select="density" />
+	<xsl:text>",</xsl:text>
+	
 	<xsl:text>xxxxxx : 0</xsl:text>
 	
 	<xsl:text>}));</xsl:text>

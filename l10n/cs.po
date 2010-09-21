@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-20 14:41+0200\n"
-"PO-Revision-Date: 2010-05-26 12:04+0100\n"
+"POT-Creation-Date: 2010-09-21 09:33+0200\n"
+"PO-Revision-Date: 2010-09-21 09:37+0100\n"
 "Last-Translator: Vojtěch Horký <vojta.horky@seznam.cz>\n"
 "Language-Team: Language cz\n"
 "Language: \n"
@@ -37,8 +37,8 @@ msgstr "Izotopy"
 #. l10n:POSITION: 1-11-1-1-2-1-1-3-1-1
 #: /dev/stdin:16
 #, php-format
-msgid "State of matter"
-msgstr "Skupenství"
+msgid "Other attributes"
+msgstr "Ostatní vlastnosti"
 
 #. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-1-1
 #: /dev/stdin:19
@@ -64,14 +64,29 @@ msgstr "Anglický název"
 msgid "Period - group"
 msgstr "Perioda - skupina"
 
-#. l10n:POSITION: 1-11-1-1-2-1-4-1-1-1
+#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-9-1
 #: /dev/stdin:31
+#, php-format
+msgid "Electronegativity"
+msgstr "Elektronegativita"
+
+#. l10n:POSITION: 1-11-1-1-2-1-4-1-1-1
+#: /dev/stdin:34
 #, php-format
 msgid "Boiling point"
 msgstr "Bod varu"
 
 #. l10n:POSITION: 1-11-1-1-2-1-4-1-3-1
-#: /dev/stdin:34
+#: /dev/stdin:37
 #, php-format
 msgid "Melting point"
 msgstr "Bod tání"
+
+#. l10n:POSITION: 1-11-1-1-2-1-4-1-5-1
+#: /dev/stdin:40
+#, php-format
+msgid "Density"
+msgstr "Hustota"
+
+#~ msgid "State of matter"
+#~ msgstr "Skupenství"

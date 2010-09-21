@@ -18,6 +18,9 @@ function ChemElement(arg) {
 	this.englishName = arg.englishName;
 	this.localName = arg.localName;
 	
+	this.electronegativity = arg.electronegativity;
+	this.density = arg.density;
+	
 	this.oxidationStates = arg.oxidationStates;
 	this.hasOxidationState = function(state) {
 		for (var i=0; i < this.oxidationStates.length; i++) {

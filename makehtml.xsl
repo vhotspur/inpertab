@@ -140,7 +140,7 @@
 					<ul>
 						<li><a href="#element-details-basic"><l:g>Basic data</l:g></a></li>
 						<li><a href="#element-details-isotopes"><l:g>Isotopes</l:g></a></li>
-						<li><a href="#element-details-states-of-matter"><l:g>State of matter</l:g></a></li>
+						<li><a href="#element-details-extra"><l:g>Other attributes</l:g></a></li>
 					</ul>
 					<div id="element-details-basic">
 						<table width="100%" border="0">
@@ -167,6 +167,10 @@
 											-
 											<span class="element-details-group">0</span>
 										</dd>
+									<dt><l:g>Electronegativity</l:g></dt>
+										<dd>
+											<span class="element-details-electronegativity">?</span>
+										</dd>
 								</dl>
 							</td>
 						</tr>
@@ -176,7 +180,7 @@
 						<ul id="element-details-isotope-list">
 						</ul>
 					</div>
-					<div id="element-details-states-of-matter">
+					<div id="element-details-extra">
 						<dl>
 							<dt><l:g>Boiling point</l:g></dt>
 								<dd>
@@ -187,6 +191,12 @@
 								<dd>
 									<span class="element-details-melting-point-kelvin">?</span>K
 									(<span class="element-details-melting-point-celsius">?</span>°C)
+
+								</dd>
+							<dt><l:g>Density</l:g></dt>
+								<dd>
+									<span class="element-details-density">?</span>
+									g&#183;cm<sup>-3</sup>
 								</dd>
 						</dl>
 					</div>

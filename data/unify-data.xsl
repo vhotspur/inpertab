@@ -122,6 +122,10 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:electronicConfiguration']/text()" />
 		</electronic-configuration>
 		
+		<electronegativity>
+			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:electronegativityPauling']/text()" />
+		</electronegativity>
+		
 	</xsl:element>
 </xsl:template>
 
