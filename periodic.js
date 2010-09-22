@@ -47,6 +47,5 @@ function onDocumentLoaded() {
 	});
 	
 	$(".plugin-board").hide();
-	pte.clearHighlighting();
-	pte.colorByMainFamily();
+	$("#plugin-show-home").click();
 }

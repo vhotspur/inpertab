@@ -31,12 +31,14 @@
 		<script type="text/javascript" src="pte.js"></script>
 		<script type="text/javascript" src="parser.js"></script>
 		<script type="text/javascript" src="plugin.js"></script>
+		<script type="text/javascript" src="home.js"></script>
 		<script type="text/javascript">
 		<xsl:apply-templates select="//plugin" mode="javascript" />
 		PLUGINS = new Array();
+		PLUGINS[0] = new Plugin_home();
 		$(function() {
 			<xsl:for-each select="//plugin">
-				PLUGINS[<xsl:value-of select="position() - 1" />]
+				PLUGINS[PLUGINS.length]
 					= new Plugin_<xsl:value-of select="id/text()" />();
 			</xsl:for-each>
 
