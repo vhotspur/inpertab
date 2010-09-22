@@ -38,6 +38,24 @@ TABLE#pte .groups-arabic TH {
 	margin: 0;
 	height: 1em;
 }
+
+TABLE#pte .element-core-numbers {
+	font-size: 160%;
+	padding-right: 1px;
+}
+TABLE#pte .element-core-numbers SPAN {
+	position: relative;
+}
+TABLE#pte .element-core-numbers SPAN SUB {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 60%;
+}
+TABLE#pte .element-core-numbers SPAN SUP {
+	font-size: 60%;
+}
+
 #p-discovery-ctrl-year {
 	margin: 0 1em;
 }
@@ -78,4 +96,19 @@ TABLE#pte .groups-arabic TH {
 
 .element-highlight {
 	background-color: #feeebd;
+}
+
+UL.p-home-legend {
+	list-style-type: none;
+}
+UL.p-home-legend LI {
+	margin: 6px;
+	float: left;
+	display: block;
+	width: 40%;
+}
+UL.p-home-legend SPAN {
+	border: 1px solid;
+	padding: 4px;
+	display: block;
 }

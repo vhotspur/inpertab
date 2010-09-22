@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-21 09:33+0200\n"
-"PO-Revision-Date: 2010-09-21 09:37+0100\n"
+"POT-Creation-Date: 2010-09-22 17:02+0200\n"
+"PO-Revision-Date: 2010-09-22 17:01+0100\n"
 "Last-Translator: Vojtěch Horký <vojta.horky@seznam.cz>\n"
 "Language-Team: Language cz\n"
 "Language: \n"
@@ -22,68 +22,110 @@ msgstr ""
 msgid "Periodic table"
 msgstr "Periodická tabulka prvků"
 
-#. l10n:POSITION: 1-11-1-1-2-1-1-1-1-1
+#. l10n:POSITION: 1-4-1-1-15-2
 #: /dev/stdin:10
+#, php-format
+msgid "Home"
+msgstr "Domů"
+
+#. l10n:POSITION: 1-12-1-1-2-1-1-1-1
+#: /dev/stdin:13
+#, php-format
+msgid "alkali metal"
+msgstr "alkalické kovy"
+
+#. l10n:POSITION: 1-12-1-1-2-1-2-1-1
+#: /dev/stdin:16
+#, php-format
+msgid "alkaline earth metal"
+msgstr "kovy alkalických zemin"
+
+#. l10n:POSITION: 1-12-1-1-2-1-3-1-1
+#: /dev/stdin:19
+#, php-format
+msgid "metal"
+msgstr "kovy"
+
+#. l10n:POSITION: 1-12-1-1-2-1-4-1-1
+#: /dev/stdin:22
+#, php-format
+msgid "metalloid"
+msgstr "polokovy"
+
+#. l10n:POSITION: 1-12-1-1-2-1-5-1-1
+#: /dev/stdin:25
+#, php-format
+msgid "non-metal"
+msgstr "nekovy"
+
+#. l10n:POSITION: 1-12-1-1-2-1-6-1-1
+#: /dev/stdin:28
+#, php-format
+msgid "noble gas"
+msgstr "vzácné plyny"
+
+#. l10n:POSITION: 1-12-1-1-3-1-1-1-1-1
+#: /dev/stdin:31
 #, php-format
 msgid "Basic data"
 msgstr "Základní údaje"
 
-#. l10n:POSITION: 1-11-1-1-2-1-1-2-1-1
-#: /dev/stdin:13
+#. l10n:POSITION: 1-12-1-1-3-1-1-2-1-1
+#: /dev/stdin:34
 #, php-format
 msgid "Isotopes"
 msgstr "Izotopy"
 
-#. l10n:POSITION: 1-11-1-1-2-1-1-3-1-1
-#: /dev/stdin:16
+#. l10n:POSITION: 1-12-1-1-3-1-1-3-1-1
+#: /dev/stdin:37
 #, php-format
 msgid "Other attributes"
 msgstr "Ostatní vlastnosti"
 
-#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-1-1
-#: /dev/stdin:19
+#. l10n:POSITION: 1-12-1-1-3-1-2-1-1-2-1-1-1
+#: /dev/stdin:40
 #, php-format
 msgid "Universal name"
 msgstr "Mezinárodní název"
 
-#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-3-1
-#: /dev/stdin:22
+#. l10n:POSITION: 1-12-1-1-3-1-2-1-1-2-1-3-1
+#: /dev/stdin:43
 #, php-format
 msgid "Name"
 msgstr "Název"
 
-#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-5-1
-#: /dev/stdin:25
+#. l10n:POSITION: 1-12-1-1-3-1-2-1-1-2-1-5-1
+#: /dev/stdin:46
 #, php-format
 msgid "English name"
 msgstr "Anglický název"
 
-#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-7-1
-#: /dev/stdin:28
+#. l10n:POSITION: 1-12-1-1-3-1-2-1-1-2-1-7-1
+#: /dev/stdin:49
 #, php-format
 msgid "Period - group"
 msgstr "Perioda - skupina"
 
-#. l10n:POSITION: 1-11-1-1-2-1-2-1-1-2-1-9-1
-#: /dev/stdin:31
+#. l10n:POSITION: 1-12-1-1-3-1-2-1-1-2-1-9-1
+#: /dev/stdin:52
 #, php-format
 msgid "Electronegativity"
 msgstr "Elektronegativita"
 
-#. l10n:POSITION: 1-11-1-1-2-1-4-1-1-1
-#: /dev/stdin:34
+#. l10n:POSITION: 1-12-1-1-3-1-4-1-1-1
+#: /dev/stdin:55
 #, php-format
 msgid "Boiling point"
 msgstr "Bod varu"
 
-#. l10n:POSITION: 1-11-1-1-2-1-4-1-3-1
-#: /dev/stdin:37
+#. l10n:POSITION: 1-12-1-1-3-1-4-1-3-1
+#: /dev/stdin:58
 #, php-format
 msgid "Melting point"
 msgstr "Bod tání"
 
-#. l10n:POSITION: 1-11-1-1-2-1-4-1-5-1
-#: /dev/stdin:40
+#. l10n:POSITION: 1-12-1-1-3-1-4-1-5-1
+#: /dev/stdin:61
 #, php-format
 msgid "Density"
 msgstr "Hustota"

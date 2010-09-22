@@ -36,6 +36,7 @@
 		<xsl:apply-templates select="//plugin" mode="javascript" />
 		PLUGINS = new Array();
 		PLUGINS[0] = new Plugin_home();
+		PLUGINS[0].name = "<l:g>Home</l:g>";
 		$(function() {
 			<xsl:for-each select="//plugin">
 				PLUGINS[PLUGINS.length]
@@ -162,6 +163,17 @@
 					<xsl:apply-templates select="board/*|board/text()" mode="deep-copy" />
 				</xsl:element>
 			</xsl:for-each>
+			
+			<div class="plugin-board" id="plugin-board-home" style="text-align:left">
+				<ul class="p-home-legend">
+					<li><span class="element-family-alkalimetal"><l:g>alkali metal</l:g></span></li>
+					<li><span class="element-family-alkalineearthmetal"><l:g>alkaline earth metal</l:g></span></li>
+					<li><span class="element-family-metal"><l:g>metal</l:g></span></li>
+					<li><span class="element-family-metalloid"><l:g>metalloid</l:g></span></li>
+					<li><span class="element-family-nonmetal"><l:g>non-metal</l:g></span></li>
+					<li><span class="element-family-noblegas"><l:g>noble gas</l:g></span></li>
+				</ul>
+			</div>
 			
 			<div id="dialog-element-details">
 				<div id="tabs-element-details">
