@@ -94,6 +94,11 @@ function PeriodicTable() {
 		$(".pte-element-below SPAN").html("&nbsp;");
 	};
 	
+	this.forEach = function(callback) {
+		for (var i=0; i<this.elements.length; i++) {
+			callback(this.elements[i]);
+		}
+	};
 	
 	this.forEachElement = function(param, callback) {
 		for (var i=0; i<this.elements.length; i++) {

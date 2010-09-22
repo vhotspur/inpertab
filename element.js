@@ -117,7 +117,7 @@ function ChemElement(pte, arg) {
 	
 	/** Highlight the element. */
 	this.highlight = function() {
-		this.cell2_(".pte-element-info").addClass("element-highlight");
+		this.addCssClass("element-highlight");
 	};
 	
 	this.setExtraInfo_ = function(where, content) {
@@ -148,4 +148,10 @@ function ChemElement(pte, arg) {
 		this.setExtraRight("");
 	};
 	
+	this.addCssClass = function(c) {
+		this.cell2_(".pte-element-info").addClass(c);
+	};
+	this.removeCssClass = function(c) {
+		this.cell2_(".pte-element-info").removeClass(c);
+	};
 }
