@@ -1,7 +1,7 @@
 H:nonmetal
 He:noblegas
 Li:alkalimetal,metal
-Be:alkalineearthmetal,metal
+Be:metal
 B:metalloid
 C:nonmetal
 N:nonmetal
@@ -9,7 +9,7 @@ O:nonmetal
 F:nonmetal,halogen
 Ne:noblegas
 Na:alkalimetal,metal
-Mg:alkalineearthmetal,metal
+Mg:metal
 Al:metal
 Si:metalloid
 P:nonmetal
