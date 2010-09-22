@@ -47,7 +47,7 @@
 		</script>
 	</head>
 	<body>
-		<table id="pte" >
+		<table id="pte" width="100%">
 			<xsl:apply-templates />
 		</table>
 		<div id="ctrl-show-plugins">
@@ -55,6 +55,19 @@
 		<pre id="dump"></pre>
 	</body>
 </html>
+</xsl:template>
+
+<xsl:template match="column-widths/width">
+	<xsl:element name="colgroup">
+		<xsl:attribute name="width">
+			<xsl:value-of select="text()" />
+		</xsl:attribute>
+		<xsl:if test="@count">
+			<xsl:attribute name="span">
+				<xsl:value-of select="@count" />
+			</xsl:attribute>
+		</xsl:if>
+	</xsl:element>
 </xsl:template>
 
 <xsl:template match="row">
@@ -115,11 +128,24 @@
 				<xsl:text>blank</xsl:text>
 			</xsl:attribute>
 		</xsl:if>
-		
-		<span>
-		<xsl:apply-templates select="$cell/*|$cell/text()" />
-		</span>
-		
+		<xsl:choose>
+			<xsl:when test="name($cell) = 'element-cell'">
+				<div class="pte-element-info">
+					<span class="pte-element-above"><span></span><br /></span>
+					<span class="pte-element-left"><span></span></span>
+					<span class="pte-element-symbol">
+						<xsl:apply-templates select="$cell/*|$cell/text()" />
+					</span>
+					<span class="pte-element-right"><span></span></span>
+					<span class="pte-element-below"><br /><span></span></span>
+				</div>
+			</xsl:when>
+			<xsl:otherwise>
+				<span>
+				<xsl:apply-templates select="$cell/*|$cell/text()" />
+				</span>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:element>
 
 </xsl:template>

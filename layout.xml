@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <periodic-table>
+<column-widths>
+	<width>4.6%</width>
+	<width count="18">5.3%</width>
+</column-widths>
 <row class="groups-arabic blank-cells">
  <blank-cell />
  <header-cell>1</header-cell>

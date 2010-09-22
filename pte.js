@@ -13,10 +13,6 @@ function PeriodicTable() {
 		}
 	};
 	
-	this._elementBackground = function(symbol, color) {
-		$("#elem_" + symbol).css("background-color", color);
-	}
-	
 	this.clearHighlighting = function() {
 		for (var i=0; i<this.elements.length; i++) {
 			this._jq(this.elements[i]).removeClass("element-highlight");
@@ -47,21 +43,59 @@ function PeriodicTable() {
 		this._jq(element).removeClass(class);
 	};
 	
-	this.showElement = function(symbol) {
-		$("#elem_" + symbol + " SPAN").show();
+	this.showElement = function(element) {
+		this._jq(element).find(".pte-element-info").css("visibility", "visible");
+	}
+	
+	this.hideElement = function(element) {
+		this._jq(element).find(".pte-element-info").css("visibility", "hidden");
 	}
 	
 	this.hideElements = function() {
-		this.forEachElement(0, function(x, element) {
-			$("#elem_" + element.symbol + " SPAN").hide();
+		this.forEachElement(this, function(pte, element) {
+			pte.hideElement(element);
 		});
 	}
 	
 	this.showElements = function() {
-		this.forEachElement(0, function(x, element) {
-			$("#elem_" + element.symbol + " SPAN").show();
+		this.forEachElement(this, function(pte, element) {
+			pte.showElement(element);
 		});
 	}
+	
+	this.elementSetAboveHtml = function(element, content) {
+		this._jq(element).find(".pte-element-above SPAN").html(content);
+	};
+	this.elementSetBelowHtml = function(element, content) {
+		this._jq(element).find(".pte-element-below SPAN").html(content);
+	};
+	this.elementSetLeftHtml = function(element, content) {
+		this._jq(element).find(".pte-element-left SPAN").html(content);
+	};
+	
+	this.eachElementSetAboveText = function(property) {
+		this.forEachElement2(property, function(pte, element, property) {
+			pte.elementSetAboveHtml(element, element[property]);
+		});
+	};
+	
+	this.eachElementClearExtraText = function() {
+		$(".pte-element-above SPAN").html("&nbsp;");
+		$(".pte-element-below SPAN").html("&nbsp;");
+		$(".pte-element-left SPAN").html("");
+		$(".pte-element-right SPAN").html("");
+	};
+	
+	this.eachElementSetBelowText = function(property) {
+		this.forEachElement2(property, function(pte, element, property) {
+			pte.elementSetBelowHtml(element, element[property]);
+		});
+	};
+	
+	this.eachElementClearBelowText = function() {
+		$(".pte-element-below SPAN").html("&nbsp;");
+	};
+	
 	
 	this.forEachElement = function(param, callback) {
 		for (var i=0; i<this.elements.length; i++) {

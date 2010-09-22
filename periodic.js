@@ -34,6 +34,7 @@ function onDocumentLoaded() {
 		$(".plugin-board").hide();
 		pte.uncolorFamilies();
 		pte.clearHighlighting();
+		pte.eachElementClearExtraText();
 		var id = $(this).attr("id");
 		id = id.substring(12);
 		for (i = 0; i < PLUGINS.length; i++) {
