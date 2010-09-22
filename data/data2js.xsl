@@ -72,6 +72,18 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 	</xsl:for-each>
 	<xsl:text>],</xsl:text>
 	
+	<!-- families -->
+	<xsl:text>families : [</xsl:text>
+	<xsl:for-each select="families/family">
+		<xsl:text>"</xsl:text>
+		<xsl:value-of select="." />
+		<xsl:text>"</xsl:text>
+		<xsl:if test="position() &lt; last()">
+			<xsl:text>, </xsl:text>
+		</xsl:if>
+	</xsl:for-each>
+	<xsl:text>],</xsl:text>
+	
 	<!-- atomic number and mass -->
 	<xsl:text>atomicNumber : "</xsl:text>
 	<xsl:value-of select="atomic-number" />

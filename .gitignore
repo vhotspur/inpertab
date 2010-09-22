@@ -1,6 +1,7 @@
 data.js
 data/data.xml
 data/names.xml
+data/families.xml
 table.html
 input.xml
 makehtml-l10n.xsl

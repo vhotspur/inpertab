@@ -3,6 +3,7 @@ TRANSLATION = cs
 DATA_ORIGINAL = \
 	data/cafeconleche-allelements.xml \
 	data/kdeedu-elements.xml \
+	data/families.xml \
 	data/names.xml
 
 XSLT = xsltproc --stringparam TRANSLATION "$(TRANSLATION)"
@@ -25,6 +26,9 @@ data/gathered.xml: $(DATA_ORIGINAL)
 
 data/names.xml: data/names.txt data/names2xml.awk
 	data/names2xml.awk <data/names.txt >$@
+
+data/families.xml: data/families.txt data/families2xml.awk
+	data/families2xml.awk <data/families.txt >$@
 
 data.js: data/data2js.xsl data/data.xml 
 	$(XSLT) data/data2js.xsl data/data.xml >$@

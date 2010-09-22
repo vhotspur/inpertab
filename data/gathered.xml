@@ -3,11 +3,13 @@
 	<!ENTITY cafeconleche_allelements SYSTEM "cafeconleche-allelements.xml">
 	<!ENTITY kdeedu_elements SYSTEM "kdeedu-elements.xml">
 	<!ENTITY element_names SYSTEM "names.xml">
+	<!ENTITY element_families SYSTEM "families.xml">
 ]>
 <data>
 
 	&kdeedu_elements;
 	&cafeconleche_allelements;
 	&element_names;
+	&element_families;
 	
 </data>

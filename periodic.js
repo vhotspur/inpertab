@@ -32,6 +32,7 @@ function onDocumentLoaded() {
 			PLUGINS[PLUGIN_CURRENT].onSuspend();
 		}
 		$(".plugin-board").hide();
+		pte.uncolorFamilies();
 		pte.clearHighlighting();
 		var id = $(this).attr("id");
 		id = id.substring(12);
@@ -47,4 +48,5 @@ function onDocumentLoaded() {
 	
 	$(".plugin-board").hide();
 	pte.clearHighlighting();
+	pte.colorByMainFamily();
 }

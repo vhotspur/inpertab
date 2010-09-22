@@ -134,4 +134,22 @@ function PeriodicTable() {
 			title:  dialogTitle
 		});
 	};
+	
+	this.colorByMainFamily = function() {
+		this.forEachElement2(null, function(pte, element, xxx) {
+			pte.elementAddClass(element,
+				"element-family-" + element.families[0]);
+		});
+	};
+	
+	this.uncolorFamilies = function() {
+		this.forEachElement2(null, function(pte, element, xxx) {
+			var classes = pte._jq(element).attr("class").split(/\s+/);
+			$.each(classes, function(index, item) {
+				if (item.match(/^element-family-/i)) {
+					pte.elementRemoveClass(element, item);
+				}
+			});
+		});
+	};
 }

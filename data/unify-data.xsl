@@ -47,6 +47,7 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 	<xsl:variable name="info1" select="//kdeedu:atom[@id = $element]" />
 	<xsl:variable name="info2" select="//ATOM[SYMBOL/text() = $element]" />
 	<xsl:variable name="info3" select="//element-names/element[@symbol = $element]" />
+	<xsl:variable name="info4" select="//element-families/element[@symbol = $element]" />
 
 	<xsl:element name="element">
 		<xsl:attribute name="id">
@@ -125,6 +126,14 @@ Rf Db Sg Bh Hs Mt Ds Rg Uub Uut Uuq Uup Uuh Uus Uuo
 		<electronegativity>
 			<xsl:value-of select="$info1/kdeedu:scalar[@dictRef='bo:electronegativityPauling']/text()" />
 		</electronegativity>
+		
+		<families>
+			<xsl:for-each select="$info4/family">
+				<family>
+					<xsl:value-of select="." />
+				</family>
+			</xsl:for-each>
+		</families>
 		
 	</xsl:element>
 </xsl:template>

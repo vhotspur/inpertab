@@ -31,6 +31,8 @@ function ChemElement(arg) {
 		return false;
 	};
 	
+	this.families = arg.families;
+	
 	this.boilingPoint = arg.boilingPoint;
 	if (this.boilingPoint == "") {
 		this.boilingPoint = -1;

@@ -55,6 +55,24 @@ TABLE#pte .groups-arabic TH {
 	text-align: center;
 }
 
+.element-family-metal {
+	background-color: #9cf;
+}
+.element-family-metalloid {
+	background-color: #f9c;
+}
+.element-family-noblegas {
+	background-color: #fc9;
+}
+.element-family-nonmetal {
+	background-color: #ffc;
+}
+.element-family-alkalimetal {
+	background-color: #69f;
+}
+.element-family-alkalineearthmetal {
+	background-color: #99f;
+}
 
 .element-highlight {
 	background-color: #feeebd;
