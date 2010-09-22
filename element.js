@@ -6,7 +6,9 @@ oxidationStates
 discoveryYear, discoveryCountries, discoveryPeople
 boilingPoint, meltingPoint
 */
-function ChemElement(arg) {
+function ChemElement(pte, arg) {
+	this.pte = pte;
+	
 	this.symbol = arg.symbol;
 	this.atomicNumber = arg.atomicNumber;
 	this.mass = arg.mass;
@@ -100,4 +102,50 @@ function ChemElement(arg) {
 	this.toString = function() {
 		return "[ChemElement(" + this.symbol + ")]";
 	};
+	
+	/* View-related functions. */
+	
+	
+	/** Access to element cell in periodic table. */
+	this.cell_ = function() {
+		return $("#elem_" + symbol);
+	};
+	/** Access to element cell in periodic table with extra selectors. */
+	this.cell2_ = function(selectors) {
+		return $("#elem_" + this.symbol + " " + selectors);
+	};
+	
+	/** Highlight the element. */
+	this.highlight = function() {
+		this.cell2_(".pte-element-info").addClass("element-highlight");
+	};
+	
+	this.setExtraInfo_ = function(where, content) {
+		this.cell2_(".pte-element-" + where + " SPAN").html(content);
+	};
+	
+	/** Set text displayed above the element symbol. */
+	this.setExtraAbove = function(content) {
+		this.setExtraInfo_("above", content);
+	};
+	/** Set text displayed below the element symbol. */
+	this.setExtraBelow = function(content) {
+		this.setExtraInfo_("below", content);
+	};
+	/** Set text displayed left of the element symbol. */
+	this.setExtraLeft = function(content) {
+		this.setExtraInfo_("left", content);
+	};
+	/** Set text displayed right of the element symbol. */
+	this.setExtraRight = function(content) {
+		this.setExtraInfo_("right", content);
+	};
+	
+	this.clearExtras = function() {
+		this.setExtraAbove("&nbsp;");
+		this.setExtraBelow("&nbsp;");
+		this.setExtraLeft("");
+		this.setExtraRight("");
+	};
+	
 }

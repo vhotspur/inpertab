@@ -26,7 +26,7 @@ xmlns:kdeedu="http://www.xml-cml.org/schema">
 </xsl:template>
 
 <xsl:template match="element">
-	<xsl:text>	pte.addElement(new ChemElement( {</xsl:text>
+	<xsl:text>	pte.addElement(new ChemElement(pte,  {</xsl:text>
 	
 	<!-- symbol (id) -->
 	<xsl:text>symbol : "</xsl:text>

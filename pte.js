@@ -14,13 +14,11 @@ function PeriodicTable() {
 	};
 	
 	this.clearHighlighting = function() {
-		for (var i=0; i<this.elements.length; i++) {
-			this._jq(this.elements[i]).removeClass("element-highlight");
-		}
+		$("DIV.pte-element-info").removeClass("element-highlight");
 	};
 	
 	this._highlightElementBySymbol = function(symbol) {
-		this._jq(symbol).addClass("element-highlight");
+		this._jq(symbol).find("DIV.pte-element-info").addClass("element-highlight");
 	};
 	
 	this.highlightElementByIndex = function(idx) {
