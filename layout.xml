@@ -163,8 +163,8 @@
  <element-cell id="elem_Uuo">Uuo</element-cell>
 </row>
 <row>
- <cell col-span="3" class="blank"></cell>
- <cell col-span="16" class="blank"></cell>
+ <cell col-span="3" class="blank">&#160;</cell>
+ <cell col-span="16" class="blank">&#160;</cell>
 </row>
 <row>
  <cell col-span="3" row-span="2" class="blank"></cell>

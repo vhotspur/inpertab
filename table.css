@@ -11,9 +11,13 @@ TABLE#pte TD, TABLE#pte TH {
 	border-width: 1px 1px 0 0;
 	border-width: 1px;
 	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+TABLE#pte TD .pte-element-info, TABLE#pte TH {
 	padding: 2px;
 	margin: 0;
-	text-align: center;
 }
 TABLE#pte .pte-element-symbol {
 	font-size: 150%;
