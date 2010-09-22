@@ -30,6 +30,11 @@
 			var info = event.data.pte.getElementInfo(symbol);
 			event.data.changeElement(info);
 		});
+		this.pte.forEach(function(element) {
+			var val = element.electronegativity * 1.0;
+			element.setExtraBelow(val.toFixed(3));
+			element.setExtraAbove(element.localName);
+		});
 		this.recalculate();
 	</resume>
 	
@@ -66,8 +71,8 @@
 		if (this.element1 == null) {
 			return;
 		}
-		this.pte.highlightElement(this.element1);
-		this.pte.highlightElement(this.element2);
+		this.element1.highlight();
+		this.element2.highlight();
 		
 		var x1 = this.element1.electronegativity;
 		var x2 = this.element2.electronegativity;

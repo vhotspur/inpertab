@@ -11,6 +11,14 @@
 
 	<resume>
 		$("#p-discovery-ctrl-year").slider("value", $("#p-discovery-ctrl-year").slider("value"));
+		this.pte.forEachElement(null, function(xxx, element) {
+			if (element.discoveryYear &lt;= 0) {
+				element.setExtraBelow("&amp;nbsp;");
+			} else {
+				element.setExtraBelow(element.discoveryYear);
+			}
+			element.setExtraAbove(element.localName);
+		});
 	</resume>
 
 	<init>
@@ -26,13 +34,13 @@
 
 	<method name="onSlide" parameters="event, ui">
 		$("#p-discovery-label-year").text(ui.value);
-                this.pte.clearHighlighting();
-                this.pte.forEachElement(this.pte, function(pte, elem) {
-                        if (elem.wasDiscoveredBefore(ui.value)) {
-                                pte.highlightElement(elem);
-                        }
-                });
-                return true;
+		this.pte.clearHighlighting();
+		this.pte.forEachElement(ui.value, function(year, elem) {
+			if (elem.wasDiscoveredBefore(year)) {
+				elem.highlight();
+			}
+		});
+		return true;
 	</method>
 </plugin>
 

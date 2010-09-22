@@ -25,6 +25,11 @@
 	</css>
 	
 	<resume>
+		this.pte.forEach(function(element) {
+			var val = element.mass * 1.0;
+			element.setExtraBelow(val.toFixed(3));
+			element.setExtraAbove(element.localName);
+		});
 		this.recalculate();
 	</resume>
 	
@@ -47,7 +52,7 @@
 				if (info == 0) {
 					continue;
 				}
-				this.pte.highlightElement(info);
+				info.highlight();
 				m = info.mass;
 			} else {
 				m = this.calculateMass(formula[i][1]);

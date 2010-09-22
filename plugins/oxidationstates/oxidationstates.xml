@@ -34,6 +34,9 @@
 
 	<resume>
 		this.onChange();
+		this.pte.forEach(function(element) {
+			element.setExtraAbove(element.localName);
+		});
 	</resume>
 
 	<init>
@@ -48,7 +51,7 @@
 		this.pte.clearHighlighting();
 		this.pte.forEachElement(this.pte, function(pte, elem) {
 			if (elem.hasOxidationState(state)) {
-				pte.highlightElement(elem);
+				elem.highlight();
 			}
 		});
 	</method>

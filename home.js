@@ -6,13 +6,8 @@ function Plugin_home() {
 	};
 
 	this.onResume = function() {
-		this.pte.clearHighlighting();
 		this.pte.colorByMainFamily();
-		this.pte.eachElementSetAboveText("localName");
-		//this.pte.eachElementSetBelowText("electronegativity");
-		this.pte.forEachElement(this.pte, function(pte, element) {
-			pte.elementSetBelowHtml(element, "&nbsp;");
-		});
+		
 		this.pte.forEachElement(this.pte, function(pte, element) {
 			var nucleon = Math.round(element.mass);
 			if (nucleon == 0) {
@@ -25,12 +20,13 @@ function Plugin_home() {
 			disp += "<sub>" + proton + "</sub>";
 			disp += "</span>";
 			disp += "</span>";
-			pte.elementSetLeftHtml(element, disp);
+			
+			element.setExtraLeft(disp);
+			element.setExtraAbove(element.localName);
 		});
 		
 	};
 
 	this.onSuspend = function() {
-		this.pte.eachElementClearExtraText();
 	};
 }

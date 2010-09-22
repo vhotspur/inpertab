@@ -43,15 +43,25 @@
 	</css>
 	
 	<method name="clearClasses" parameters="">
-		this.pte.forEachElement2(null, function(pte, elem, xxx) {
-			pte.elementRemoveClass(elem, "p-slgstate-solid");	
-			pte.elementRemoveClass(elem, "p-slgstate-liquid");
-			pte.elementRemoveClass(elem, "p-slgstate-gas");
+		this.pte.forEach(function(elem) {
+			elem.removeCssClass("p-slgstate-solid");
+			elem.removeCssClass("p-slgstate-liquid");
+			elem.removeCssClass("p-slgstate-gas");
                 });
 	</method>
 
 	<resume>
 		$("#p-slgstate-ctrl-temp").slider("value", $("#p-slgstate-ctrl-temp").slider("value"));
+		this.pte.forEach(function(element) {
+			if (element.meltingPoint &gt;= 0) {
+				var temp = Math.round(element.meltingPoint - 273.15);
+				element.setExtraAbove(temp + "°C");
+			}
+			if (element.boilingPoint &gt;= 0) {
+				var temp = Math.round(element.boilingPoint - 273.15);
+				element.setExtraBelow(temp + "°C");
+			}
+		});
 	</resume>
 	
 	<suspend>
@@ -81,7 +91,7 @@
 		this.clearClasses();
                 this.pte.forEachElement2(ui.value, function(pte, elem, temp) {
 			var state = elem.getStateOfMatter(temp);
-			pte.elementAddClass(elem, "p-slgstate-" + state);	
+			elem.addCssClass("p-slgstate-" + state);	
                 });
 		if (!this.updateFromFields) {
 			$("#p-slgstate-in-kelvin").val(ui.value);
