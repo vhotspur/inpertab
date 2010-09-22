@@ -22,12 +22,19 @@
 			</p>
 		</div>
 	</board>
+	
+	<css>
+		.p-pinpointgame-badguess {
+			background: red;
+		}
+	</css>
 
 	<resume>
 		this.nextRound();
 	</resume>
 	
 	<suspend>
+		$("TD.element").removeClass("p-pinpointgame-badguess");
 		this.pte.showElements();
 		$("TD.element").unbind("click");
 		$("TD.element").bind("click", this.pte, function(event) {
@@ -66,22 +73,21 @@
 		this.answerTries = 0;
 		
 		$("#p-pinpointgame-clue").text(this.answerElement.symbol);
-		$("TD.element").css("background-color", "white");
+		$("TD.element").removeClass("p-pinpointgame-badguess");
 		this.pte.hideElements();
 		
 		$("TD.element").unbind("click");
 		$("TD.element").bind("click", this, function(event) {
 			var plugin = event.data;
-			var element = $(this).attr("id").substring(5);
-			var elementInfo = plugin.pte.getElementInfo(element);
-			var symbol = elementInfo.symbol;
+			var id = $(this).attr("id").substring(5);
+			var element = plugin.pte.getElementInfo(id);
+			var symbol = element.symbol;
 			if (plugin.answer == symbol) {
-				$(this).css("background-color", "green");
 				plugin.successDialog();
 			} else {
 				/* bad answer */
-				$(this).css("background-color", "red");
-				plugin.pte.showElement(symbol);
+				$(this).addClass("p-pinpointgame-badguess");
+				plugin.pte.showElement(element);
 				plugin.answerTries++;
 			}
 		});
