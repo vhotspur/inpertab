@@ -30,6 +30,27 @@ function ChemElement(arg) {
 		}
 		return false;
 	};
+	this.getOxidationStatesList = function(delimiter) {
+		if (delimiter == undefined) {
+			delimiter = ",";
+		}
+		var roman = $.map(this.oxidationStates, function(state, idx) {
+			var negative = new Array("-IV", "-III", "-II", "-I");
+			var positive = new Array("I", "II", "III", "IV", "V",
+				"VI", "VII", "VIII");
+			if (state < 0) {
+				if (state >= -4) {
+					return negative[-state - 1];
+				}
+			} else if (state > 0) {
+				if (state <= 8) {
+					return positive[state - 1];
+				}
+			}
+			return null;
+		});
+		return roman.join(delimiter);
+	};
 	
 	this.families = arg.families;
 	
