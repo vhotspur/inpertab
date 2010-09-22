@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<plugin xmlns:l="http://github.com/vhotspur/sxmloc">
+	<name><l:g>Electronegativity</l:g></name>
+	<id>electronegativity</id>
+
+	<board>
+		<div>
+			<l:g>Click on 2 elements to compute polarity of their bond</l:g>
+		</div>
+		<div id="p-electronegativity-result">
+			<span id="p-electronegativity-element1" />
+			&#8211;
+			<span id="p-electronegativity-element2" />
+			:
+			<span id="p-electronegativity-kind" />
+			[&#916;&#935; = <span id="p-electronegativity-diff" />]
+		</div>
+	</board>
+	
+	<css>
+		#p-electronegativity-result {
+			font-size: 200%;
+		}
+	</css>
+	
+	<resume>
+		$("TD.element").unbind("click");
+		$("TD.element").bind("click", this, function(event) {
+			var symbol = $(this).attr("id").substring(5);
+			var info = event.data.pte.getElementInfo(symbol);
+			event.data.changeElement(info);
+		});
+		this.recalculate();
+	</resume>
+	
+	<suspend>
+		$("TD.element").unbind("click");
+		$("TD.element").bind("click", this.pte, function(event) {
+			event.data.showElementDetails($(this).attr("id").substring(5));
+		});
+	</suspend>
+
+	<init>
+		this.kinds = new Array(
+			"<l:g>non-polar</l:g>",
+			"<l:g>polar</l:g>",
+			"<l:g>ionic (extreme polar)</l:g>"
+		);
+		this.element1 = null;
+		this.element2 = null;
+		this.changeElement(this.pte.getElementInfo("H"));
+		this.recalculate();
+	</init>
+	
+	<method name="changeElement" parameters="newElement">
+		this.element1 = this.element2;
+		this.element2 = newElement;
+		if (this.element1 == null) {
+			this.element1 = newElement;
+		}
+		this.recalculate();
+	</method>
+	
+	<method name="recalculate">
+		this.pte.clearHighlighting();
+		if (this.element1 == null) {
+			return;
+		}
+		this.pte.highlightElement(this.element1);
+		this.pte.highlightElement(this.element2);
+		
+		var x1 = this.element1.electronegativity;
+		var x2 = this.element2.electronegativity;
+		
+		var diff = Math.abs(x1 - x2);
+		var kind;
+		if (diff &lt;= 0.4) {
+			kind = 0;
+		} else if (diff &lt; 1.7) {
+			kind = 1;
+		} else {
+			kind = 2;
+		}
+		diff = diff.toFixed(3);
+		
+		$("#p-electronegativity-element1").text(this.element1.symbol);
+		$("#p-electronegativity-element2").text(this.element2.symbol);
+		$("#p-electronegativity-kind").text(this.kinds[kind]);
+		$("#p-electronegativity-diff").text(diff);
+	</method>
+</plugin>
+

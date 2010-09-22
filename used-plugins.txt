@@ -3,3 +3,4 @@ oxidationstates
 pinpointgame
 slgstate
 atmasscalc
+electronegativity
