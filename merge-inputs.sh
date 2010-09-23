@@ -20,7 +20,7 @@ while read plugin_id; do
 	else
 		removeXmlSignature "plugins/${plugin_id}/${plugin_id}.xml"
 	fi
-done <used-plugins.txt
+done
 echo '</plugins>'
 
 echo '</periodic-table-input>'

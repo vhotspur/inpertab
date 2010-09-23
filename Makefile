@@ -6,17 +6,23 @@ DATA_ORIGINAL = \
 	data/families.xml \
 	data/names.xml
 
+DEPLOY_DIRNAME = pte
+DEPLOY_ARCHIVE = $(DEPLOY_DIRNAME).tar.gz
+DEPLOY_PACKER = tar czf
+
+PLUGINS = used-plugins.txt
+
 XSLT = xsltproc --stringparam TRANSLATION "$(TRANSLATION)"
-RM = rm -f
+RM = rm -rf
 
 all: table.html data.js
 
-input.xml: used-plugins.txt layout.xml
+input.xml: $(PLUGINS) layout.xml
 	@if [ -z "$(TRANSLATION)" ]; then \
 		echo "Error: TRANSLATION variable not set."; \
 		exit 1; \
 	fi
-	./merge-inputs.sh "$(TRANSLATION)" >$@
+	./merge-inputs.sh "$(TRANSLATION)" <$(PLUGINS) >$@
 
 data/data.xml: data/gathered.xml data/unify-data.xsl
 	$(XSLT) data/unify-data.xsl data/gathered.xml >$@
@@ -62,6 +68,18 @@ makehtml-l10n.xsl: makehtml.xsl l10n/$(TRANSLATION).po l10n/pte.pot
 table.html: makehtml-l10n.xsl input.xml
 	$(XSLT) makehtml-l10n.xsl input.xml >$@
 
+
+deploy: all
+	mkdir $(DEPLOY_DIRNAME)
+	mkdir $(DEPLOY_DIRNAME)/js
+	mkdir $(DEPLOY_DIRNAME)/css
+	cp table.html $(DEPLOY_DIRNAME)/index.html
+	cp table.css $(DEPLOY_DIRNAME)/
+	cp data.js element.js home.js parser.js periodic.js plugin.js pte.js $(DEPLOY_DIRNAME)/
+	cp js/* $(DEPLOY_DIRNAME)/js/
+	cp -R css/* $(DEPLOY_DIRNAME)/css
+	$(DEPLOY_PACKER) $(DEPLOY_ARCHIVE) $(DEPLOY_DIRNAME)
+	$(RM) $(DEPLOY_DIRNAME)
 
 clean:
 	$(RM) data/data.xml data.js table.html input.xml
