@@ -33,12 +33,12 @@ function PeriodicTable() {
 		}
 	};
 	
-	this.elementAddClass = function(symbol, class) {
-		this._jq(symbol).addClass(class);
+	this.elementAddClass = function(symbol, c) {
+		this._jq(symbol).addClass(c);
 	};
 	
-	this.elementRemoveClass = function(element, class) {
-		this._jq(element).removeClass(class);
+	this.elementRemoveClass = function(element, c) {
+		this._jq(element).removeClass(c);
 	};
 	
 	this.showElement = function(element) {
