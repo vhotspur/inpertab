@@ -44,20 +44,8 @@ TABLE#pte .groups-arabic TH {
 }
 
 TABLE#pte .element-core-numbers {
-	font-size: 160%;
+	font-size: 120%;
 	padding-right: 1px;
-}
-TABLE#pte .element-core-numbers SPAN {
-	position: relative;
-}
-TABLE#pte .element-core-numbers SPAN SUB {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	font-size: 60%;
-}
-TABLE#pte .element-core-numbers SPAN SUP {
-	font-size: 60%;
 }
 
 #p-discovery-ctrl-year {
