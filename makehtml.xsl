@@ -179,7 +179,6 @@
 				<div id="tabs-element-details">
 					<ul>
 						<li><a href="#element-details-basic"><l:g>Basic data</l:g></a></li>
-						<li><a href="#element-details-isotopes"><l:g>Isotopes</l:g></a></li>
 						<li><a href="#element-details-extra"><l:g>Other attributes</l:g></a></li>
 					</ul>
 					<div id="element-details-basic">
@@ -215,10 +214,6 @@
 							</td>
 						</tr>
 						</table>
-					</div>
-					<div id="element-details-isotopes">
-						<ul id="element-details-isotope-list">
-						</ul>
 					</div>
 					<div id="element-details-extra">
 						<dl>
