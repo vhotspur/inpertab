@@ -52,7 +52,7 @@ msgstr ""
 "\t\t\t\t<span class='p-slgstate-solid'>pevné</span>\n"
 "\t\t\t\t<span class='p-slgstate-liquid'>kapalné</span>\n"
 "\t\t\t\t<span class='p-slgstate-gas'>plynné</span>\n"
-"\t\t\t\t<span class='p-slgstate-unknown'>neurčeno</span>\n"
+"\t\t\t\t<span class='p-slgstate-unknown'>teploty neurčeny</span>\n"
 "\t\t\t"
 
 #~ msgid ""

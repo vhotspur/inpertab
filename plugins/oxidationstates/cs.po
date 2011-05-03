@@ -21,4 +21,4 @@ msgstr ""
 #: /dev/stdin:7
 #, php-format
 msgid "Oxidation states"
-msgstr "Oxidační čísla"
+msgstr "Oxidační čísla ve sloučeninách"
