@@ -23,13 +23,14 @@
 
 	<init>
 		// initialize the controls
+		var d = new Date();
                 $("#p-discovery-ctrl-year").slider({
-                        max: 2010,
+                        max: d.getFullYear() + 1,
                         min: 1600,
                         slide: $.proxy(this.onSlide, this),
                         change: $.proxy(this.onSlide, this)
                 });
-                $("#p-discovery-ctrl-year").slider("value", 2010);
+                $("#p-discovery-ctrl-year").slider("value", d.getFullYear());
 	</init>
 
 	<method name="onSlide" parameters="event, ui">
