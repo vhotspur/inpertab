@@ -22,9 +22,9 @@
 	</board>
 	
 	<css>
-		.p-slgstate-solid { background-color: #ccc; }
-		.p-slgstate-liquid { background-color: #99f; }
-		.p-slgstate-gas { background-color: #ff9; }
+		.p-slgstate-solid { background-color: #809FFF; }
+		.p-slgstate-liquid { background-color: #FF8080; }
+		.p-slgstate-gas { background-color: #8AE673; }
 		#p-slgstate-legend, #p-slgstate-slider {
 			margin: 1em;
 		}

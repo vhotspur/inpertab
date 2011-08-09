@@ -45,7 +45,7 @@
 	
 	<css>
 		.p-pinpointgame-badguess {
-			background: red;
+			background: #FF8080;
 		}
 	</css>
 

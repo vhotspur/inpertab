@@ -68,26 +68,26 @@ TABLE#pte .element-core-numbers {
 }
 
 .element-family-metal {
-	background-color: #9cf;
+	background-color: #FFE680;
 }
 .element-family-metalloid {
-	background-color: #f9c;
+	background-color: #8AE673;
 }
 .element-family-noblegas {
-	background-color: #fc9;
+	background-color: #BFCFFF;
 }
 .element-family-nonmetal {
-	background-color: #ffc;
+	background-color: #809FFF;
 }
 .element-family-alkalimetal {
-	background-color: #69f;
+	background-color: #FFB380;
 }
 .element-family-alkalineearthmetal {
-	background-color: #99f;
+	background-color: #FFCC80;
 }
 
 .element-highlight {
-	background-color: #feeebd;
+	background-color: #FFDD57;
 }
 
 UL.p-home-legend {
