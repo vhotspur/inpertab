@@ -1,6 +1,6 @@
 discovery
 oxidationstates
-pinpointgame
 slgstate
 atmasscalc
 electronegativity
+pinpointgame
