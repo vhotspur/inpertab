@@ -4,6 +4,18 @@
 	<id>pinpointgame</id>
 
 	<board>
+		<form id="p-pinpointgame-game-kind">
+			<div id="p-pinpointgame-kind-radios">
+				<input type="radio" id="p-pinpointgame-kind-base" name="p-pinpointgame-kind" checked="checked" value="base" />
+					<label for="p-pinpointgame-kind-base"><l:g>Base elements</l:g></label>
+				<input type="radio" id="p-pinpointgame-kind-metals" name="p-pinpointgame-kind" value="metals" />
+					<label for="p-pinpointgame-kind-metals"><l:g>Metals elements</l:g></label>
+				<input type="radio" id="p-pinpointgame-kind-laac" name="p-pinpointgame-kind" value="laac" />
+					<label for="p-pinpointgame-kind-laac"><l:g>Lanthanoids and Actinoids</l:g></label>
+				<input type="radio" id="p-pinpointgame-kind-all" name="p-pinpointgame-kind" value="all" />
+					<label for="p-pinpointgame-kind-all"><l:g>All elements</l:g></label>
+			</div>
+		</form>
 		<div id="p-pinpointgame-quest">
 			<l:g>Pin-point the following element: <span id="p-pinpointgame-clue" />.</l:g>
 		</div>
@@ -21,6 +33,14 @@
 				</span>
 			</p>
 		</div>
+		<div id="p-pinpointgame-stats">
+			<p>
+				<l:g>It took you <span id="p-pinpointgame-stats-total" /> tries to find <span id="p-pinpointgame-stats-elements" /> elements.</l:g>
+			</p>
+			<p id="p-pinpointgame-stats-first-guess">
+				<l:g>You scored <span id="p-pinpointgame-stats-first-count" /> on the first hit.</l:g>
+			</p>
+		</div> 
 	</board>
 	
 	<css>
@@ -43,9 +63,23 @@
 	</suspend>
 
 	<init>
-		this.allowedElements = new Array("H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Uub", "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo");
+		this.allowedElements = {
+			"base" : new Array("H"),
+			"metals" : new Array("Fe", "Cu"),
+			"laac" : new Array("La", "Ac"),
+			"all" : new Array("H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Uub", "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo")
+		};
 		this.answer = -1;
+		this.elementsPerGame = 10;
 		$("#p-pinpointgame-congrats").hide();
+		$("#p-pinpointgame-stats").hide();
+		$("#p-pinpointgame-kind-radios").buttonset();
+		$("#p-pinpointgame-kind-radios").buttonset("refresh");
+		$("#p-pinpointgame-kind-radios input:radio").click($.proxy(this.onChange, this));
+		this.gameRunning = 0;
+		this.toBeGuessed = new Array();
+		this.triesTotal = 0;
+		this.toBeGuessedCount = 0;
 	</init>
 	
 	<method name="successDialog" parameters="">
@@ -67,8 +101,19 @@
 	</method>
 	
 	<method name="nextRound" parameters="">
-		var idx = Math.floor(Math.random() * this.allowedElements.length);
-		this.answer = this.allowedElements[idx];
+		if (this.toBeGuessed.length == 0) {
+			if (this.gameRunning) {
+				this.displayStatistics();
+				return;
+			}
+			this.gameRunning = 0;
+			$("#p-pinpointgame-kind-radios input:radio:checked").click();
+			return;
+		}
+		$("#p-pinpointgame-stats").hide();
+		var kind = $("input[name=p-pinpointgame-kind]:radio:checked").val();
+		var idx = this.toBeGuessed.splice(0, 1);
+		this.answer = this.allowedElements[kind][idx];
 		this.answerElement = this.pte.getElementInfo(this.answer);
 		this.answerTries = 0;
 		
@@ -82,6 +127,7 @@
 			var id = $(this).attr("id").substring(5);
 			var element = plugin.pte.getElementInfo(id);
 			var symbol = element.symbol;
+			plugin.triesTotal++;
 			if (plugin.answer == symbol) {
 				plugin.successDialog();
 			} else {
@@ -91,6 +137,48 @@
 				plugin.answerTries++;
 			}
 		});
+	</method>
+	
+	<method name="onChange">
+		if (this.gameRunning) {
+			var answer = window.confirm("<l:g>Abort current game?</l:g>");
+			if (!answer) {
+				return false;
+			}
+		}
+		var kind = $("input[name=p-pinpointgame-kind]:radio:checked").val();
+		var length = this.allowedElements[kind].length;
+		var guessedCount = length &gt; this.elementsPerGame ? this.elementsPerGame : length;
+		var guessedIndexes = new Array(guessedCount);
+		var i, j;
+		for (i = 0; i &lt; guessedCount; i++) {
+			var indexOk;
+			var idx;
+			do {
+				indexOk = 1;
+				idx = Math.floor(Math.random() * length);
+				for (j = 0; j &lt; i; j++) {
+					if (guessedIndexes[j] == idx) {
+						indexOk = 0;
+						break;
+					}
+				}
+			} while (!indexOk);
+			guessedIndexes[i] = idx;
+		}
+		this.gameRunning = 1;
+		this.toBeGuessed = guessedIndexes;
+		this.toBeGuessedCount = guessedCount;
+		this.nextRound();
+		return true;
+	</method>
+	
+	<method name="displayStatistics">
+		this.gameRunning = 0;
+		$("#p-pinpointgame-stats-total").text(this.triesTotal);
+		$("#p-pinpointgame-stats-elements").text(this.toBeGuessedCount);
+		$("#p-pinpointgame-stats").show();
+		$("#p-pinpointgame-stats-first-guess").hide();
 	</method>
 </plugin>
 
