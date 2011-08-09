@@ -75,9 +75,9 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">4.216</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">0.95</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry">se,uk</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1895</scalar>
-    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">P. J. Janssen;J. N. Lockyer</array>
+    <array dataType="xsd:string" delimiter="," size="2" dictRef="bo:discoveryCountry"></array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1868</scalar>
+    <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">1</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">1s2</scalar>
@@ -124,7 +124,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1560</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">s</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">fr</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1797</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1798</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">Nicholas Louis Vauquelin</array>
     <scalar dataType="xsd:int" dictRef="bo:period">2</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
@@ -575,9 +575,9 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3650</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">2163</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">se</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1830</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoverers">N. Sefström</array>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry"></array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1801</scalar>
+    <array dataType="xsd:string" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d3 4s2</scalar>
@@ -670,9 +670,9 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">3143</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1768</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">se</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1737</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoverers">G. Brandt</array>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry"></array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1735</scalar>
+    <array dataType="xsd:string" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d7 4s2</scalar>
@@ -741,9 +741,9 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">1180</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">692.73</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">de</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1746</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoverers">Andreas Marggraf</array>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry"></array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">0</scalar>
+    <array dataType="xsd:string" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">4</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">2</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Ar 3d10 4s2</scalar>
@@ -1602,7 +1602,7 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">2968</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1747</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1878</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1879</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">J. L. Soret;P.T. Cleve</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">3</scalar>
@@ -1810,7 +1810,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">3300</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">uk</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
@@ -1834,7 +1834,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">2720</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">uk</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1804</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1803</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">S. Tennant</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
@@ -1858,7 +1858,7 @@
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">2042.1</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">d</scalar>
     <array dataType="xsd:string" dictRef="bo:discoveryCountry">uk</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1735</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1736</scalar>
     <array dataType="xsd:string" dictRef="bo:discoverers">A. de Ulloa</array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
@@ -2041,9 +2041,9 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">211.4</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">202</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoveryCountry">de</array>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1898</scalar>
-    <array dataType="xsd:string" dictRef="bo:discoverers">E. Dorn</array>
+    <array dataType="xsd:string" dictRef="bo:discoveryCountry"></array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1900</scalar>
+    <array dataType="xsd:string" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">6</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">8</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Xe 4f14 5d10 6s2 6p6</scalar>
@@ -2150,8 +2150,8 @@
     <scalar dataType="xsd:float" dictRef="bo:boilingpoint"  units="siUnits:kelvin">4300</scalar>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1845</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1917</scalar>
-    <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers">O. Hahn;L. Meitern;W. Wollaston</array>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1913</scalar>
+    <array dataType="xsd:string" delimiter=";" size="3" dictRef="bo:discoverers"></array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">5</scalar>
     <scalar dataType="xsd:string" dictRef="bo:electronicConfiguration">Rn 5f2 6d1 7s2</scalar>
@@ -2337,7 +2337,7 @@
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.70 0.12 0.73</array>
     <scalar dataType="xsd:float" dictRef="bo:meltingpoint"  units="siUnits:kelvin">1800</scalar>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">f</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1953</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">1952</scalar>
     <array dataType="xsd:string" delimiter=";" size="2" dictRef="bo:discoverers">Glenn T. Seaborg;et al.</array>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:int" dictRef="bo:group">4</scalar>
@@ -2619,7 +2619,7 @@
     <scalar dataType="xsd:string" dictRef="bo:nameOrigin" xml:lang="en">Temporary symbol and name. Can also be referred to as eka-astatine.</scalar>
     <array title="color" dictRef="bo:elementColor" size="3" dataType="xsd:float">0.99 0.00 0.07</array>
     <scalar dataType="xsd:string" dictRef="bo:periodTableBlock">p</scalar>
-    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">-1</scalar>
+    <scalar dataType="xsd:date" dictRef="bo:discoveryDate">2010</scalar>
     <scalar dataType="xsd:int" dictRef="bo:period">7</scalar>
     <scalar dataType="xsd:string" dictRef="bo:family">Halogen</scalar>
   </atom>
