@@ -25,6 +25,7 @@
 		</style>
 		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
+		<script type="text/javascript" src="js/sprintf.js"></script>
 		<script type="text/javascript" src="data.js"></script>
 		<script type="text/javascript" src="periodic.js"></script>
 		<script type="text/javascript" src="element.js"></script>
