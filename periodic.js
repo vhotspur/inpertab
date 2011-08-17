@@ -29,7 +29,12 @@ function onDocumentLoaded() {
 	$("#ctrl-show-plugins").buttonset();
 	$(".plugin-show-hide").click(function() {
 		if (PLUGIN_CURRENT >= 0) {
-			PLUGINS[PLUGIN_CURRENT].onSuspend();
+			var really_switch = PLUGINS[PLUGIN_CURRENT].onSuspend();
+			if (really_switch === false) {
+				return false;
+			}
+			$(this).attr("checked", "checked");
+			$(this).button("refresh");
 		}
 		$(".plugin-board").hide();
 		pte.uncolorFamilies();
