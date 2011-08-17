@@ -48,10 +48,15 @@
 	</css>
 
 	<resume>
+		this.pte.hideElements();
 		this.nextRound();
 	</resume>
 	
 	<suspend>
+		if (!this.stopGameClicked()) {
+			return false;
+		}
+		
 		$("TD.element").removeClass("p-pinpointgame-badguess");
 		this.pte.showElements();
 		$("TD.element").unbind("click");
@@ -230,6 +235,8 @@
 		$("#p-pinpointgame-start-game").show();
 		$("#p-pinpointgame-game-groups, #p-pinpointgame-game-subgroups").show();
 		$("#p-pinpointgame-quest").hide();
+		
+		return true;
 	</method>
 	
 	<method name="successDialog" parameters="">
@@ -245,7 +252,9 @@
 		}
 		$("#p-pinpointgame-congrats").show();
 		$("#p-pinpointgame-congrats").fadeOut(4000, function() {
-			$("#p-pinpointgame-quest").fadeIn("slow");
+			if (this.gameRunning) {
+				$("#p-pinpointgame-quest").fadeIn("slow");
+			}
 		});
 		this.nextRound();
 	</method>
@@ -272,7 +281,6 @@
 		$("#p-pinpointgame-quest").show();
 		$("#p-pinpointgame-clue").text(this.answerElement.symbol);
 		$("TD.element").removeClass("p-pinpointgame-badguess");
-		this.pte.hideElements();
 		
 		$("TD.element").unbind("click");
 		$("TD.element").bind("click", this, function(event) {
@@ -332,9 +340,9 @@
 	
 	<method name="displayStatistics">
 		this.gameRunning = 0;
-		$("#p-pinpointgame-stats-total").text(this.triesTotal);
-		$("#p-pinpointgame-stats-elements").text(this.toBeGuessedCount);
-		$("#p-pinpointgame-stats").show();
+		
+		alert("Game ended - you needed " + this.triesTotal + " tries to find " + this.toBeGuessedCount + " elements.");
+
 		$("#p-pinpointgame-stats-first-guess").hide();
 	</method>
 </plugin>
