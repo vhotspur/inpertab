@@ -5,15 +5,12 @@
 
 	<board>
 		<form id="p-pinpointgame-game-kind">
-			<div id="p-pinpointgame-kind-radios">
-				<input type="radio" id="p-pinpointgame-kind-base" name="p-pinpointgame-kind" checked="checked" value="base" />
-					<label for="p-pinpointgame-kind-base"><l:g>Base elements</l:g></label>
-				<input type="radio" id="p-pinpointgame-kind-metals" name="p-pinpointgame-kind" value="metals" />
-					<label for="p-pinpointgame-kind-metals"><l:g>Metals elements</l:g></label>
-				<input type="radio" id="p-pinpointgame-kind-laac" name="p-pinpointgame-kind" value="laac" />
-					<label for="p-pinpointgame-kind-laac"><l:g>Lanthanoids and Actinoids</l:g></label>
-				<input type="radio" id="p-pinpointgame-kind-all" name="p-pinpointgame-kind" value="all" />
-					<label for="p-pinpointgame-kind-all"><l:g>All elements</l:g></label>
+			<div id="p-pinpointgame-game-groups">
+			</div>
+			<div id="p-pinpointgame-game-subgroups">
+			</div>
+			<div>
+			<input type="button" id="p-pinpointgame-start-game" />
 			</div>
 		</form>
 		<div id="p-pinpointgame-quest">
@@ -63,14 +60,108 @@
 	</suspend>
 
 	<init>
-		this.allowedElements = {
-			"base" : new Array("H"),
-			"metals" : new Array("Fe", "Cu"),
-			"laac" : new Array("La", "Ac"),
-			"all" : new Array("H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr", "Rb", "Sr", "Y", "Zr", "Nb", "Mo", "Tc", "Ru", "Rh", "Pd", "Ag", "Cd", "In", "Sn", "Sb", "Te", "I", "Xe", "Cs", "Ba", "La", "Ce", "Pr", "Nd", "Pm", "Sm", "Eu", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Hf", "Ta", "W", "Re", "Os", "Ir", "Pt", "Au", "Hg", "Tl", "Pb", "Bi", "Po", "At", "Rn", "Fr", "Ra", "Ac", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr", "Rf", "Db", "Sg", "Bh", "Hs", "Mt", "Ds", "Rg", "Uub", "Uut", "Uuq", "Uup", "Uuh", "Uus", "Uuo")
-		};
+		this.subGames = new Array(
+			{
+				"id" : "base",
+				"name" : "<l:g>Base</l:g>",
+				"subgroups" : new Array(
+					{
+						"id" : "1a",
+						"name" : "I.A",
+						"elements" : new Array("H", "Li")
+					},
+					{
+						"id" : "2a",
+						"name" : "II.A",
+						"elements" : new Array("Be", "Mg")
+					}
+				)
+			},
+			{
+				"id" : "metals",
+				"name" : "<l:g>Metals</l:g>",
+				"subgroups" : new Array(
+					{
+						"id" : "3b",
+						"name" : "III.B",
+						"elements" : new Array("Sc", "Y")
+					}
+				)
+			},
+			{
+				"id" : "all",
+				"name" : "<l:g>All</l:g>",
+				"subgroups" : new Array(),
+				"elements" : new Array("H", "Li", "Be", "Mg")
+			}
+		);
+		
+		var i;
+		for (i = 0; i &lt; this.subGames.length; i++) {
+			var elem_id = "p-pinpointgame-game-group-" + this.subGames[i]["id"];
+			var subgroup_id = "p-pinpointgame-game-subgroup-"
+				+ this.subGames[i]["id"];
+			var radio_elem = $('&lt;input&gt;').attr({
+				type: 'radio',
+				name: 'p-pinpointgame-game-group',
+				value: this.subGames[i]["id"],
+				id: elem_id
+			});
+			$(radio_elem).click(function() {
+				$("#p-pinpointgame-game-subgroups DIV").hide();
+				$("#p-pinpointgame-game-subgroup-" + $(this).val()).show();
+			});
+			var label_elem = $('&lt;label&gt;').attr({
+				for: elem_id
+			});
+			label_elem.append(this.subGames[i]["name"]);
+			$("#p-pinpointgame-game-groups").append(radio_elem);
+			$("#p-pinpointgame-game-groups").append(label_elem);
+			
+			if (this.subGames[i]["subgroups"].length > 0) {
+				$("#p-pinpointgame-game-subgroups").append(
+					"&lt;div id=\"" + subgroup_id + "\"&gt;&lt;/div&gt;");
+				var j;
+				for (j = 0; j &lt; this.subGames[i]["subgroups"].length; j++) {
+					var check_id = "p-pinpoint-game-subgroup-"
+						+ this.subGames[i]["id"]
+						+  this.subGames[i]["subgroups"][j]["id"];
+					var check_elem = $('&lt;input&gt;').attr({
+						type: 'checkbox',
+						name: 'p-pinpoint-game-subgroup-'  + this.subGames[i]["id"],
+						value:  this.subGames[i]["subgroups"][j]["id"],
+						checked: j == 0,
+						id: check_id
+					});
+					var check_label_elem = $('&lt;label&gt;').attr({
+						for: check_id
+					});
+					check_label_elem.append(this.subGames[i]["subgroups"][j]["name"]);
+					
+					$("#" + subgroup_id).append(check_elem);
+					$("#" + subgroup_id).append(check_label_elem);
+				}
+				
+				$("#" + subgroup_id).buttonset();
+				$("#" + subgroup_id).hide();
+			}
+		}
+
+		$("#p-pinpointgame-game-groups").buttonset();
+		$("#p-pinpointgame-game-groups INPUT:radio:first").click();
+		$("#p-pinpointgame-game-groups INPUT:radio:first").button("refresh");
+		
+		$("#p-pinpointgame-start-game").button({label: "<l:g>Start game</l:g>"});
+		$("#p-pinpointgame-start-game").click($.proxy(this.startGameClicked, this));
+		
+		$("#p-pinpointgame-quest").hide();
+		
+		this.pte.hideElements();
+					
+		this.allowedElements = new Array();
 		this.answer = -1;
 		this.elementsPerGame = 10;
+		
 		$("#p-pinpointgame-congrats").hide();
 		$("#p-pinpointgame-stats").hide();
 		$("#p-pinpointgame-kind-radios").buttonset();
@@ -81,6 +172,47 @@
 		this.triesTotal = 0;
 		this.toBeGuessedCount = 0;
 	</init>
+	
+	<method name="startGameClicked" parameters="">
+		var group_id = $("input[name=p-pinpointgame-game-group]:radio:checked").val();
+		var group_index = -1;
+		var i;
+		for (i = 0; i &lt; this.subGames.length; i++) {
+			if (this.subGames[i]["id"] == group_id) {
+				group_index = i;
+				break;
+			}
+		}
+		if (group_index == -1) {
+			alert("<l:g>No game selected.</l:g>");
+			return false;
+		}
+		
+		var allowed_elements = new Array();
+		if (this.subGames[group_index]["subgroups"].length == 0) {
+			allowed_elements = this.subGames[group_index]["elements"];
+		} else {
+			var checked_subgroups = $("input[name=p-pinpoint-game-subgroup-" + group_id + "]:checkbox:checked");
+			var j;
+			for (j = 0; j &lt; this.subGames[group_index]["subgroups"].length; j++) {
+				if ($("#p-pinpoint-game-subgroup-"
+						+ group_id
+						+ this.subGames[group_index]["subgroups"][j]["id"]
+						+ ":checked").val()) {
+					$.merge(allowed_elements, this.subGames[group_index]["subgroups"][j]["elements"]);
+				}
+			}
+		}
+		
+		if (allowed_elements.length == 0) {
+			alert("<l:g>No elements selected.</l:g>");
+			return false;
+		}
+		
+		this.startGame(allowed_elements);
+		
+		return true;
+	</method>
 	
 	<method name="successDialog" parameters="">
 		$("#p-pinpointgame-quest").hide();
@@ -111,12 +243,12 @@
 			return;
 		}
 		$("#p-pinpointgame-stats").hide();
-		var kind = $("input[name=p-pinpointgame-kind]:radio:checked").val();
 		var idx = this.toBeGuessed.splice(0, 1);
-		this.answer = this.allowedElements[kind][idx];
+		this.answer = this.allowedElements[idx];
 		this.answerElement = this.pte.getElementInfo(this.answer);
 		this.answerTries = 0;
 		
+		$("#p-pinpointgame-quest").show();
 		$("#p-pinpointgame-clue").text(this.answerElement.symbol);
 		$("TD.element").removeClass("p-pinpointgame-badguess");
 		this.pte.hideElements();
@@ -139,15 +271,15 @@
 		});
 	</method>
 	
-	<method name="onChange">
+	<method name="startGame" parameters="allowedElements">
 		if (this.gameRunning) {
 			var answer = window.confirm("<l:g>Abort current game?</l:g>");
 			if (!answer) {
 				return false;
 			}
 		}
-		var kind = $("input[name=p-pinpointgame-kind]:radio:checked").val();
-		var length = this.allowedElements[kind].length;
+		this.allowedElements = allowedElements;
+		var length = allowedElements.length;
 		var guessedCount = length &gt; this.elementsPerGame ? this.elementsPerGame : length;
 		var guessedIndexes = new Array(guessedCount);
 		var i, j;
