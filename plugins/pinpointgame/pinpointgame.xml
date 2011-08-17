@@ -11,6 +11,7 @@
 			</div>
 			<div>
 			<input type="button" id="p-pinpointgame-start-game" />
+			<input type="button" id="p-pinpointgame-stop-game" />
 			</div>
 		</form>
 		<div id="p-pinpointgame-quest">
@@ -154,6 +155,10 @@
 		$("#p-pinpointgame-start-game").button({label: "<l:g>Start game</l:g>"});
 		$("#p-pinpointgame-start-game").click($.proxy(this.startGameClicked, this));
 		
+		$("#p-pinpointgame-stop-game").button({label: "<l:g>Stop game</l:g>"});
+		$("#p-pinpointgame-stop-game").click($.proxy(this.stopGameClicked, this));
+		$("#p-pinpointgame-stop-game").hide();
+		
 		$("#p-pinpointgame-quest").hide();
 		
 		this.pte.hideElements();
@@ -164,9 +169,6 @@
 		
 		$("#p-pinpointgame-congrats").hide();
 		$("#p-pinpointgame-stats").hide();
-		$("#p-pinpointgame-kind-radios").buttonset();
-		$("#p-pinpointgame-kind-radios").buttonset("refresh");
-		$("#p-pinpointgame-kind-radios input:radio").click($.proxy(this.onChange, this));
 		this.gameRunning = 0;
 		this.toBeGuessed = new Array();
 		this.triesTotal = 0;
@@ -214,6 +216,22 @@
 		return true;
 	</method>
 	
+	<method name="stopGameClicked" parameters="">
+		if (this.gameRunning) {
+			var answer = window.confirm("<l:g>Abort current game?</l:g>");
+			if (!answer) {
+				return false;
+			}
+		}
+		
+		this.gameRunning = 0; 
+		
+		$("#p-pinpointgame-stop-game").hide();
+		$("#p-pinpointgame-start-game").show();
+		$("#p-pinpointgame-game-groups, #p-pinpointgame-game-subgroups").show();
+		$("#p-pinpointgame-quest").hide();
+	</method>
+	
 	<method name="successDialog" parameters="">
 		$("#p-pinpointgame-quest").hide();
 		$("#p-pinpointgame-congrats").show();
@@ -233,13 +251,16 @@
 	</method>
 	
 	<method name="nextRound" parameters="">
+		if (!this.gameRunning) {
+			return;
+		}
+		
 		if (this.toBeGuessed.length == 0) {
 			if (this.gameRunning) {
 				this.displayStatistics();
-				return;
 			}
 			this.gameRunning = 0;
-			$("#p-pinpointgame-kind-radios input:radio:checked").click();
+			this.stopGameClicked();
 			return;
 		}
 		$("#p-pinpointgame-stats").hide();
@@ -302,6 +323,10 @@
 		this.toBeGuessed = guessedIndexes;
 		this.toBeGuessedCount = guessedCount;
 		this.nextRound();
+		
+		$("#p-pinpointgame-stop-game").show();
+		$("#p-pinpointgame-start-game").hide();
+		$("#p-pinpointgame-game-groups, #p-pinpointgame-game-subgroups").hide();
 		return true;
 	</method>
 	
