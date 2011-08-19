@@ -55,6 +55,7 @@
 
 	<resume>
 		this.pte.hideElements();
+		$("TD.element").unbind("click");
 		this.nextRound();
 	</resume>
 	
