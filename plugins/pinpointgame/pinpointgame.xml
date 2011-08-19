@@ -332,6 +332,9 @@
 		$("#p-pinpointgame-game-groups, #p-pinpointgame-game-subgroups").show();
 		$("#p-pinpointgame-quest").hide();
 		
+		$("TD.element").removeClass("p-pinpointgame-badguess");
+		$("TD.element").unbind("click");
+		
 		return true;
 	</method>
 	
@@ -356,6 +359,8 @@
 	</method>
 	
 	<method name="nextRound" parameters="">
+		this.pte.hideElements();
+		
 		if (!this.gameRunning) {
 			return;
 		}
@@ -381,6 +386,9 @@
 		$("TD.element").unbind("click");
 		$("TD.element").bind("click", this, function(event) {
 			var plugin = event.data;
+			if (!plugin.gameRunning) {
+				return;
+			}
 			var id = $(this).attr("id").substring(5);
 			var element = plugin.pte.getElementInfo(id);
 			var symbol = element.symbol;
@@ -397,12 +405,6 @@
 	</method>
 	
 	<method name="startGame" parameters="allowedElements">
-		if (this.gameRunning) {
-			var answer = window.confirm("<l:g>Abort current game?</l:g>");
-			if (!answer) {
-				return false;
-			}
-		}
 		this.allowedElements = allowedElements;
 		var length = allowedElements.length;
 		var guessedCount = length &gt; this.elementsPerGame ? this.elementsPerGame : length;
