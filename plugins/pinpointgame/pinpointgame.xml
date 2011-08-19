@@ -341,7 +341,9 @@
 	<method name="displayStatistics">
 		this.gameRunning = 0;
 		
-		alert("Game ended - you needed " + this.triesTotal + " tries to find " + this.toBeGuessedCount + " elements.");
+		alert($.sprintf(
+			"<l:g>You needed %d tries to find %d elements.</l:g>",
+			this.triesTotal, this.toBeGuessedCount));
 
 		$("#p-pinpointgame-stats-first-guess").hide();
 	</method>
