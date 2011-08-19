@@ -45,6 +45,12 @@
 		.p-pinpointgame-badguess {
 			background: #FF8080;
 		}
+		#p-pinpointgame-game-kind DIV {
+			padding: 5px;
+		}
+		#p-pinpointgame-game-subgroups {
+			min-height: 2em;
+		}
 	</css>
 
 	<resume>
