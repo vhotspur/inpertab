@@ -74,12 +74,47 @@
 					{
 						"id" : "1a",
 						"name" : "I.A",
-						"elements" : new Array("H", "Li")
+						"elements" : new Array("H", "Li", "Na", "K", "Rb", "Cs", "Fr")
 					},
 					{
 						"id" : "2a",
 						"name" : "II.A",
-						"elements" : new Array("Be", "Mg")
+						"elements" : new Array("Be", "Mg", "Ca", "Sr", "Ba", "Ra")
+					},
+					{
+						"id" : "3a",
+						"name" : "III.A",
+						"elements" : new Array("B", "Al", "Ga", "In", "Tl")
+					},
+					{
+						"id" : "4a",
+						"name" : "IV.A",
+						"elements" : new Array("C", "Si", "Ge", "Sn", "Pb")
+					},
+					{
+						"id" : "5a",
+						"name" : "V.A",
+						"elements" : new Array("N", "P", "As", "Sb", "Bi")
+					},
+					{
+						"id" : "6a",
+						"name" : "VI.A",
+						"elements" : new Array("O", "S", "Se", "Te", "Po")
+					},
+					{
+						"id" : "7a",
+						"name" : "VII.A",
+						"elements" : new Array("F", "Cl", "Br", "I", "At")
+					},
+					{
+						"id" : "8a",
+						"name" : "VIII.A",
+						"elements" : new Array("He", "Ne", "Ar", "Kr", "Xe", "Rn")
+					},
+					{
+						"id" : "base-all",
+						"name" : "<l:g>All</l:g>",
+						"elements" : new Array("H", "Li", "Na", "K", "Rb", "Cs", "Fr", "Be", "Mg", "Ca", "Sr", "Ba", "Ra", "B", "Al", "Ga", "In", "Tl", "C", "Si", "Ge", "Sn", "Pb", "N", "P", "As", "Sb", "Bi", "O", "S", "Se", "Te", "Po", "F", "Cl", "Br", "I", "At", "He", "Ne", "Ar", "Kr", "Xe", "Rn")
 					}
 				)
 			},
@@ -88,9 +123,70 @@
 				"name" : "<l:g>Metals</l:g>",
 				"subgroups" : new Array(
 					{
+						"id" : "1b",
+						"name" : "I.B",
+						"elements" : new Array("Cu", "Ag", "Au")
+					},
+					{
+						"id" : "2b",
+						"name" : "II.B",
+						"elements" : new Array("Zn", "Cd", "Hg")
+					},
+					{
 						"id" : "3b",
 						"name" : "III.B",
-						"elements" : new Array("Sc", "Y")
+						"elements" : new Array("Sc", "Y", "La")
+					},
+					{
+						"id" : "4b",
+						"name" : "IV.B",
+						"elements" : new Array("Ti", "Zr", "Hf")
+					},
+					{
+						"id" : "5b",
+						"name" : "V.B",
+						"elements" : new Array("V", "Nb", "Ta")
+					},
+					{
+						"id" : "6b",
+						"name" : "VI.B",
+						"elements" : new Array("Cr", "Mo", "W")
+					},
+					{
+						"id" : "7b",
+						"name" : "VII.B",
+						"elements" : new Array("Mn", "Tc", "Re")
+					},
+					{
+						"id" : "8b",
+						"name" : "VIII.B",
+						"elements" : new Array("Fe", "Co", "Ni", "Ru", "Rh", "Pd", "Os", "Ir", "Pt")
+					},
+					{
+						"id" : "metals-all",
+						"name" : "<l:g>All</l:g>",
+						"elements" : new Array("Cu", "Ag", "Au", "Zn", "Cd", "Hg", "Sc", "Y", "La", "Ti", "Zr", "Hf", "V", "Nb", "Ta", "Cr", "Mo", "W", "Mn", "Tc", "Re", "Fe", "Co", "Ni", "Ru", "Rh", "Pd", "Os", "Ir", "Pt")
+					}
+				)
+			},
+			{
+				"id" : "laac",
+				"name" : "<l:g>La, Ac</l:g>",
+				"subgroups" : new Array(
+					{
+						"id" : "la",
+						"name" : "La",
+						"elements" : new Array("Ce", "Pr", "Nd", "Pm", "Sm", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu")
+					},
+					{
+						"id" : "ac",
+						"name" : "Ac",
+						"elements" : new Array("Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr")
+					},
+					{
+						"id" : "laac-all",
+						"name" : "<l:g>All</l:g>",
+						"elements" : new Array("Ce", "Pr", "Nd", "Pm", "Sm", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr")
 					}
 				)
 			},
@@ -98,7 +194,7 @@
 				"id" : "all",
 				"name" : "<l:g>All</l:g>",
 				"subgroups" : new Array(),
-				"elements" : new Array("H", "Li", "Be", "Mg")
+				"elements" : new Array("H", "Li", "Na", "K", "Rb", "Cs", "Fr", "Be", "Mg", "Ca", "Sr", "Ba", "Ra", "B", "Al", "Ga", "In", "Tl", "C", "Si", "Ge", "Sn", "Pb", "N", "P", "As", "Sb", "Bi", "O", "S", "Se", "Te", "Po", "F", "Cl", "Br", "I", "At", "He", "Ne", "Ar", "Kr", "Xe", "Rn", "Cu", "Ag", "Au", "Zn", "Cd", "Hg", "Sc", "Y", "La", "Ti", "Zr", "Hf", "V", "Nb", "Ta", "Cr", "Mo", "W", "Mn", "Tc", "Re", "Fe", "Co", "Ni", "Ru", "Rh", "Pd", "Os", "Ir", "Pt", "Ce", "Pr", "Nd", "Pm", "Sm", "Gd", "Tb", "Dy", "Ho", "Er", "Tm", "Yb", "Lu", "Th", "Pa", "U", "Np", "Pu", "Am", "Cm", "Bk", "Cf", "Es", "Fm", "Md", "No", "Lr")
 			}
 		);
 		
